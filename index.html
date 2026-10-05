@@ -82,7 +82,7 @@
       <div class="hero-copy">
         <h1 id="hero-title"><span>The audit paused.</span> <span>The obligation didn’t.</span></h1>
         <p class="lede">Third-party CMMC certification was paused on July 13, 2026. Self-assessments, the SPRS score your primes check, and the DFARS clauses behind it were not. With no outside assessor in the picture, your own documentation is the only thing standing behind that score. We write it.</p>
-        <div class="hero-actions">
+        <div class="actions">
           <a class="btn btn-primary" href="tel:+18052291408">Call (805) 229-1408</a>
           <a class="btn btn-secondary" href="mailto:Juan.morales@NexxusAdvisory.com?subject=CMMC%20documentation%20call">Email Juan</a>
         </div>
@@ -98,7 +98,7 @@
           <h3 class="notice-key">Changed</h3>
           <div class="notice-val">
             <span class="tag tag-hold">Paused</span>
-            <p>Third-party certification: C3PAO Level 2 certification and DIBCAC Level 3 certification, while the program is reviewed.</p>
+            <p>Third-party certification (C3PAO Level 2 and DIBCAC Level 3), pending program review</p>
           </div>
         </div>
         <div class="notice-row">
@@ -106,19 +106,16 @@
           <div class="notice-val">
             <span class="tag tag-ok">Still in force</span>
             <ul>
-              <li>Level 1 and Level 2 self-assessments, with an annual affirmation (in force since November 10, 2025)</li>
-              <li>DFARS 252.204-7012: safeguarding and 72-hour incident reporting</li>
-              <li>Your SPRS score, under DFARS 252.204-7019 and 252.204-7020</li>
-              <li>NIST SP 800-171 Revision 2 as the standard</li>
-              <li>Requirements your prime flows down to you</li>
+              <li>Self-assessments and annual affirmation (since Nov. 10, 2025)</li>
+              <li>DFARS 252.204-7012 safeguarding and incident reporting</li>
+              <li>SPRS scores under DFARS 252.204-7019 and -7020</li>
+              <li>NIST SP 800-171 Revision 2</li>
+              <li>Flow-downs from your prime</li>
               <li>Federal enforcement</li>
             </ul>
           </div>
         </div>
-        <div class="notice-foot">
-          <p>Any change to these rules would come through rulemaking.</p>
-          <p>Status as of October 5, 2026.</p>
-        </div>
+        <p class="notice-foot">Any change would come through rulemaking. Status as of October 5, 2026.</p>
       </section>
     </div>
   </section>
@@ -128,43 +125,67 @@
       <div class="prose">
         <h2 id="sprs-title">What your primes check</h2>
         <p>Before a prime awards you a subcontract that involves controlled unclassified information (CUI), DFARS 252.204-7020 says it has to confirm you’ve completed a Basic Assessment within the last three years. That assessment is the score you post in SPRS, the government’s Supplier Performance Risk System.</p>
-        <p>A Basic Assessment is defined as your own review of your System Security Plan. When you post the score, you also post the date you expect to reach the full 110. Both are representations you’re making to the government.</p>
+        <p>A Basic Assessment is defined as your own review of your System Security Plan. When you post the score, you also post the date you expect to reach the full 110.</p>
       </div>
-      <div class="ask">
-        <p class="ask-q">Is your posted score based on a real System Security Plan, or an estimate?</p>
-        <p class="ask-a">If the honest answer is “an estimate,” or you’re not sure, that’s where we start.</p>
+      <div class="posted" role="group" aria-labelledby="posted-title">
+        <p class="posted-head" id="posted-title">What a posted score says</p>
+        <div class="posted-row">
+          <p class="posted-key">Score</p>
+          <p class="posted-val"><span class="blank" aria-hidden="true"></span>of 110</p>
+        </div>
+        <div class="posted-row">
+          <p class="posted-key">Based on</p>
+          <p class="posted-val">Your System Security Plan</p>
+        </div>
+        <div class="posted-row">
+          <p class="posted-key">Date you’ll reach 110</p>
+          <p class="posted-val"><span class="blank blank-wide" aria-hidden="true"></span></p>
+        </div>
+        <p class="posted-foot">A summary score only, with no detail by requirement. Each line is a representation you’re making to the government.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ask-band" id="ask" aria-labelledby="ask-title">
+    <div class="wrap">
+      <h2 id="ask-title">Is your posted score based on a real System Security Plan, or an estimate?</h2>
+      <div>
+        <p>If the honest answer is “an estimate,” or you’re not sure, that’s where we start.</p>
+        <div class="actions">
+          <a class="btn btn-light" href="tel:+18052291408">Call (805) 229-1408</a>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="section" id="facts" aria-labelledby="facts-title">
     <div class="wrap">
-      <div class="section-head">
-        <h2 id="facts-title">Worth knowing before your next prime questionnaire</h2>
-        <p>Most of what goes wrong isn’t the firewall. It’s the paperwork, the scope, and the accuracy of what’s been said.</p>
+      <div class="facts-grid">
+        <div class="facts-intro">
+          <h2 id="facts-title">Worth knowing before your next prime questionnaire</h2>
+          <p>Most of what goes wrong isn’t the firewall. It’s the paperwork, the scope, and the accuracy of what’s been said.</p>
+        </div>
+        <div class="fact">
+          <h3>Enforcement didn’t pause.</h3>
+          <p>Federal settlements with defense contractors and a university have turned on inaccurate cybersecurity statements, not on breaches. Getting hacked wasn’t the trigger. Saying something inaccurate was.</p>
+        </div>
+        <div class="fact">
+          <h3>No plan, no assessment.</h3>
+          <p>Under the DoD Assessment Methodology, a missing System Security Plan means the assessment couldn’t be completed. The plan is what the assessment is built on.</p>
+        </div>
+        <div class="fact">
+          <h3>A plan of action earns no points.</h3>
+          <p>A requirement that isn’t implemented is scored as not implemented, whether or not you have a plan to fix it.</p>
+        </div>
+        <div class="fact">
+          <h3>Older machines aren’t disqualifying.</h3>
+          <p>Equipment that can’t meet a requirement, like an older machine controller, can be documented as an enduring exception: isolated, and described in the System Security Plan with its mitigations.</p>
+        </div>
+        <div class="fact">
+          <h3>Level 1 has no grace period.</h3>
+          <p>At Level 1, a plan of action isn’t allowed at any point. All 15 requirements in FAR 52.204-21 need to be in place before the annual affirmation is signed.</p>
+        </div>
       </div>
-      <dl class="facts">
-        <div class="fact">
-          <dt>Enforcement didn’t pause.</dt>
-          <dd>Federal settlements with defense contractors and a university have turned on inaccurate cybersecurity statements, not on breaches. Getting hacked wasn’t the trigger. Saying something inaccurate was.</dd>
-        </div>
-        <div class="fact">
-          <dt>No plan, no assessment.</dt>
-          <dd>Under the DoD Assessment Methodology, a missing System Security Plan means the assessment couldn’t be completed. The plan isn’t background paperwork; it’s what the assessment is built on.</dd>
-        </div>
-        <div class="fact">
-          <dt>A plan of action earns no points.</dt>
-          <dd>A requirement that isn’t implemented is scored as not implemented, whether or not you have a plan to fix it.</dd>
-        </div>
-        <div class="fact">
-          <dt>Older machines aren’t disqualifying.</dt>
-          <dd>Equipment that can’t meet a requirement, like an older machine controller, can be documented as an enduring exception: isolated, and described in the System Security Plan with its mitigations. Age alone isn’t a barrier.</dd>
-        </div>
-        <div class="fact">
-          <dt>Level 1 has no grace period.</dt>
-          <dd>At Level 1, a plan of action isn’t allowed at any point. All 15 requirements in FAR 52.204-21 need to be in place before the annual affirmation is signed.</dd>
-        </div>
-      </dl>
     </div>
   </section>
 
@@ -172,7 +193,7 @@
     <div class="wrap">
       <div class="section-head">
         <h2 id="services-title">What we do</h2>
-        <p>Two engagements, both documentation work. We write; your IT provider implements. Nothing we do touches or configures your systems.</p>
+        <p>Two engagements, both documentation work. We write; your IT provider implements.</p>
       </div>
       <div class="services">
         <article class="service">
@@ -199,7 +220,17 @@
           </ul>
         </article>
       </div>
-      <p class="terms"><strong>Each engagement is a fixed fee, agreed before any work starts.</strong> No hourly billing. We’re paid for the documentation, never for a score or an outcome.</p>
+      <div class="dont">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"></path></svg>What we don’t do</h3>
+        <ul>
+          <li>Audit or certify you. We’re not a certifying assessor (C3PAO).</li>
+          <li>Install or configure anything on your systems</li>
+          <li>Give legal opinions</li>
+          <li>Take custody of controlled information</li>
+          <li>Log in to SPRS or PIEE for you</li>
+        </ul>
+      </div>
+      <p class="terms"><strong>Fixed fee per engagement, agreed before any work starts.</strong> No hourly billing, and never tied to a score or an outcome.</p>
     </div>
   </section>
 
@@ -224,7 +255,7 @@
           <li class="op">
             <p class="op-num"><span>Op</span> 20</p>
             <h3>Site visit</h3>
-            <p>Two to four hours at your shop. We start at the desk, then walk the floor with a field form. We map where controlled information lives without taking any of it: no copies of drawings, no files.</p>
+            <p>Two to four hours at your shop. We start at the desk, then walk the floor with a field form. We map where controlled information lives without taking copies of anything.</p>
           </li>
           <li class="op">
             <p class="op-num"><span>Op</span> 30</p>
@@ -239,47 +270,14 @@
           <li class="op">
             <p class="op-num"><span>Op</span> 50</p>
             <h3>You post your score</h3>
-            <p>You post your own score in SPRS, on your own computer. We never log in to SPRS or PIEE for you.</p>
+            <p>You post your own score in SPRS, on your own computer.</p>
           </li>
         </ol>
       </div>
     </div>
   </section>
 
-  <section class="section section-alt" id="boundaries" aria-labelledby="boundaries-title">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="boundaries-title">What we do, and what we don’t</h2>
-      </div>
-      <div class="bounds">
-        <div class="bound bound-do">
-          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12.5l5 5L20 6.5"></path></svg>We do</h3>
-          <ul>
-            <li>Map where controlled information lives in your shop</li>
-            <li>Write your System Security Plan</li>
-            <li>Work out your score from the DoD Assessment Methodology</li>
-            <li>Write your plan of action and supporting policies</li>
-          </ul>
-        </div>
-        <div class="bound bound-dont">
-          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"></path></svg>We don’t</h3>
-          <ul>
-            <li>Audit or certify you. We’re not a certifying assessor (C3PAO).</li>
-            <li>Install or configure anything on your systems</li>
-            <li>Give legal opinions</li>
-            <li>Take custody of controlled information, by email, on a drive, or any other way</li>
-            <li>Log in to SPRS or PIEE for you</li>
-          </ul>
-        </div>
-      </div>
-      <div class="handling">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.5"></circle><path d="M12 7.5v5.5"></path><path d="M12 16.5v.01"></path></svg>
-        <p><strong>Please don’t send us drawings, contracts, or controlled information,</strong> in a first email or at any point after. We don’t need copies, and we won’t accept them.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="about" aria-labelledby="about-title">
+  <section class="section section-alt" id="about" aria-labelledby="about-title">
     <div class="wrap">
       <div class="section-head">
         <h2 id="about-title">Two partners, based in Ventura County</h2>
@@ -287,26 +285,30 @@
       </div>
       <div class="people">
         <div class="person">
-          <h3>Juan</h3>
+          <h3>Juan Morales</h3>
           <p class="person-role">Founder, technical delivery</p>
-          <p class="person-text">Leads the technical work: the scope map, the System Security Plan, and the score worksheet. Questions about whether a rule applies to your shop come to him.</p>
+          <p>Founded Nexxus Advisory and leads the technical work: the scope map, the System Security Plan, and the score worksheet. Questions about whether a rule applies to your shop come to him.</p>
+          <p>Before Nexxus, Juan <span class="todo">[worked in field] for [number] years, including [the experience most relevant to a shop owner]</span>.</p>
         </div>
         <div class="person">
-          <h3>Josh</h3>
+          <h3>Joshua Recta</h3>
           <p class="person-role">Client development</p>
-          <p class="person-text">Runs outreach and follow-up, and keeps each engagement moving. If you got a call from Nexxus, it was probably from Josh.</p>
+          <p>Runs outreach and follow-up, works on scoping alongside Juan, and keeps each engagement moving. If you got a call from Nexxus, it was probably from Josh.</p>
+          <p>Before Nexxus, Josh <span class="todo">[worked in field] for [number] years, including [the experience most relevant to a shop owner]</span>.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section section-alt" id="questions" aria-labelledby="questions-title">
-    <div class="wrap">
-      <div class="section-head">
+  <section class="section" id="questions" aria-labelledby="questions-title">
+    <div class="wrap faq-layout">
+      <div class="faq-side">
         <h2 id="questions-title">Common questions</h2>
+        <p>Don’t see yours? Ask it on the intro call.</p>
+        <a class="btn btn-primary" href="tel:+18052291408">Call (805) 229-1408</a>
       </div>
       <div class="faq">
-        <details>
+        <details open>
           <summary>Is CMMC cancelled?</summary>
           <div class="faq-answer">
             <p>No. Third-party certification is paused. Self-assessments, your SPRS score, and the DFARS clauses behind them are still in force.</p>
@@ -319,15 +321,21 @@
           </div>
         </details>
         <details>
-          <summary>Do you need to see our drawings or contracts?</summary>
+          <summary>How long does the scope map take?</summary>
           <div class="faq-answer">
-            <p>No. We map where controlled information lives without taking custody of any of it. Please don’t send drawings, contracts, or controlled information by email or any other way.</p>
+            <p>The site visit itself is two to four hours. We’ll give you a date for the written scoping document on the intro call.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Who should be there for the site visit?</summary>
+          <div class="faq-answer">
+            <p>Whoever knows how work moves through your shop: who receives drawings from your prime, who programs, and who quotes. We’ll confirm who we need when we schedule.</p>
           </div>
         </details>
         <details>
           <summary>We only handle Federal Contract Information, not CUI. Do we need you?</summary>
           <div class="faq-answer">
-            <p>Probably not. Our engagements are built around Level 2 documentation. One thing worth knowing either way: at Level 1, a plan of action isn’t allowed, so all 15 requirements need to be in place before the affirmation is signed.</p>
+            <p>Probably not. Our engagements are built around Level 2 documentation. If you’re not sure which kind of information you handle, that’s a good question for the intro call.</p>
           </div>
         </details>
         <details>
@@ -339,7 +347,7 @@
         <details>
           <summary>What does it cost?</summary>
           <div class="faq-answer">
-            <p>Each engagement is a fixed fee, agreed before any work starts. We’ll go over it after the intro call, once we know what your shop involves.</p>
+            <p>It depends on your shop. Each engagement is a fixed fee, agreed before any work starts, and we’ll go over it after the intro call.</p>
           </div>
         </details>
       </div>
@@ -362,7 +370,7 @@
       </div>
       <div class="contact-note">
         <p>We don’t record calls.</p>
-        <p>Please don’t attach drawings, contracts, or controlled information to your email.</p>
+        <p>Please don’t attach drawings, contracts, or controlled information to your email. We don’t need copies, and we won’t accept them.</p>
       </div>
     </div>
   </section>
