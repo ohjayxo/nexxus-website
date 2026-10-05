@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+  NEXXUS ADVISORY — homepage, Phase 2 correction applied
+  =========================================================
+  This is a reconstruction of the live copy at nexxusadvisory.com (fetched
+  Aug 10, 2026), not a pull of your actual source file — I don't have access
+  to your real HTML/CSS/CMS. Everything except the sections marked below is
+  your existing copy, word for word. What changed, and why:
+
+  1. Hero headline + subhead — the old version said self-assessment "stops
+     being enough" on Nov 10. That's backwards now: the third-party audit
+     is what got suspended (July 13). Self-assessment is what's still live.
+  2. First stat tile — "Nov 10 · Phase 2 live" was the specific claim your
+     own training materials flag as the thing to never say once this
+     happened. Replaced with the actual suspension date.
+  3. First "assumption" card — reworded from "your real deadline isn't
+     Nov 10" to "there's no fixed deadline right now," which is the more
+     accurate version of the same underlying point.
+  4. Small wording pass on "deadline" → "exposure" in a couple of supporting
+     lines (scope map bullet, step 3) so nothing still implies a hard date
+     that no longer exists. Pricing, service names, the trust section, and
+     the 4-step process are untouched.
+
+  If this is built on something more specific than plain HTML (a CMS,
+  Webflow, a static-site generator, a React app) send me that source and
+  I'll turn this into an exact patch instead of a full-page replacement.
+
+  To deploy as-is: rename this file to index.html and drag its folder onto
+  Netlify Drop, or push it to the repo your site already deploys from.
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+/* Everything on this page is visible by default in plain CSS. This class
+   only ADDS entrance motion for browsers that support it and haven't
+   asked for reduced motion — it never gates whether content is visible. */
+(function(){
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+    document.documentElement.className += ' js-anim';
+  }
+})();
+</script>
+<title>Nexxus Advisory — CMMC Readiness for Defense Subcontractors</title>
+<meta name="description" content="Fixed-fee CMMC Level 2 readiness and documentation for small defense subcontractors. Founder-led, no custody of controlled data — built for what's actually still due after the Phase 2 pause.">
+<meta property="og:title" content="Nexxus Advisory — CMMC Readiness for Defense Subcontractors">
+<meta property="og:description" content="The third-party audit was suspended. The self-assessment wasn't. Plain-language CMMC scoping and documentation, fixed fee.">
+<meta name="theme-color" content="#141B2E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjQwIj4KCjxnIGZpbGw9IiMxNDFCMkUiPgogIDxyZWN0IHg9IjIyIiB5PSIyMCIgd2lkdGg9IjM4IiBoZWlnaHQ9IjIwMCIvPgogIDxyZWN0IHg9IjE0MCIgeT0iMjAiIHdpZHRoPSIzOCIgaGVpZ2h0PSIyMDAiLz4KICA8cG9seWdvbiBwb2ludHM9IjIyLDIwIDYwLDIwIDE3OCwyMjAgMTQwLDIyMCIvPgo8L2c+CjxnIHN0cm9rZT0iIzE0MUIyRSIgc3Ryb2tlLXdpZHRoPSIzIiBmaWxsPSJub25lIj4KICA8bGluZSB4MT0iNCIgeTE9IjEyMCIgeDI9IjEzMiIgeTI9IjEyMCIvPgogIDxsaW5lIHgxPSIxMDAiIHkxPSI2NiIgeDI9IjEwMCIgeTI9IjE3NCIvPgogIDwhLS0gdGljayBjYXBzIC0tPgogIDxsaW5lIHgxPSI0IiB5MT0iMTE0IiB4Mj0iNCIgeTI9IjEyNiIvPgogIDxsaW5lIHgxPSIxMzIiIHkxPSIxMTQiIHgyPSIxMzIiIHkyPSIxMjYiLz4KICA8bGluZSB4MT0iOTQiIHkxPSI2NiIgeDI9IjEwNiIgeTI9IjY2Ii8+CiAgPGxpbmUgeDE9Ijk0IiB5MT0iMTc0IiB4Mj0iMTA2IiB5Mj0iMTc0Ii8+CjwvZz4KPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTIwIiByPSI5IiBmaWxsPSIjQTY0OTFGIiBzdHJva2U9IiNGMUYyRUMiIHN0cm9rZS13aWR0aD0iMiIvPgo8L3N2Zz4=">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --ink:        #141B2E;
+  --ink-soft:   #4A5268;
+  --paper:      #F1F2EC;
+  --white:      #FFFFFF;
+  --line:       #DBDED2;
+  --verified:   #2C6B4A;
+  --verified-bg:#E7EFE7;
+  --changed:    #A6491F;
+  --changed-bg: #F3E7DD;
+  --focus:      #2E6F8E;
+
+  --display: 'Fraunces', serif;
+  --body:    'IBM Plex Sans', sans-serif;
+  --mono:    'IBM Plex Mono', monospace;
+
+  --wrap: 1080px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--body); font-size:17px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{ font-family:var(--display); font-weight:600; margin:0; color:var(--ink); }
+em{ font-style:italic; font-weight:400; color:var(--ink-soft); }
+p{ margin:0; }
+a{ color:inherit; }
+ul,ol{ margin:0; padding:0; list-style:none; }
+:focus-visible{ outline:2px solid var(--focus); outline-offset:3px; }
+
+.wrap{ max-width:var(--wrap); margin:0 auto; padding:0 24px; }
+.eyebrow{
+  font-family:var(--mono); font-size:12.5px; font-weight:600;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft);
+}
+section{ padding:84px 0; }
+@media (max-width:640px){ section{ padding:52px 0; } }
+
+/* status chips — small, restrained, purely informational */
+.chip{
+  display:inline-flex; align-items:center; gap:.5em;
+  font-family:var(--mono); font-size:12.5px; font-weight:600;
+  letter-spacing:.03em; text-transform:uppercase;
+  padding:.45em .9em; border-radius:100px;
+}
+.chip--changed{ background:var(--changed-bg); color:var(--changed); }
+.chip--verified{ background:var(--verified-bg); color:var(--verified); }
+.chip::before{ content:"●"; font-size:8px; }
+html.js-anim .chip--verified::before{ animation:pulse 2.2s ease-in-out infinite; }
+@keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:.3; } }
+
+/* ============================ MOTION ============================
+   Nothing below changes what's visible without JS. html.js-anim is only
+   added when animation can actually run (see head script); every rule
+   here is scoped under it, so a non-JS or reduced-motion visitor just
+   sees the plain, fully-visible page. */
+
+.reveal{ opacity:1; transform:none; }
+html.js-anim .reveal{
+  opacity:0; transform:translateY(22px);
+  transition:opacity .6s cubic-bezier(.22,.7,.2,1), transform .6s cubic-bezier(.22,.7,.2,1);
+  transition-delay:var(--d,0s);
+}
+html.js-anim .reveal.is-visible{ opacity:1; transform:translateY(0); }
+
+html.js-anim .hero .eyebrow,
+html.js-anim .hero h1,
+html.js-anim .hero__chips,
+html.js-anim .hero__sub,
+html.js-anim .stats{ animation:heroIn .7s cubic-bezier(.22,.7,.2,1) both; }
+html.js-anim .hero .eyebrow{ animation-delay:.02s; }
+html.js-anim .hero h1{ animation-delay:.10s; }
+html.js-anim .hero__chips{ animation-delay:.30s; }
+html.js-anim .hero__sub{ animation-delay:.38s; }
+html.js-anim .stats{ animation-delay:.48s; }
+@keyframes heroIn{ from{ opacity:0; transform:translateY(16px); } to{ opacity:1; transform:translateY(0); } }
+
+@media (prefers-reduced-motion:reduce){
+  html.js-anim .reveal, html.js-anim .hero *{ animation:none !important; transition:none !important; opacity:1!important; transform:none!important; }
+  html.js-anim .chip--verified::before{ animation:none; }
+}
+
+.site-header{ transition:box-shadow .3s ease; }
+.site-header.is-scrolled{ box-shadow:0 10px 26px -20px rgba(20,27,46,.4); }
+
+.btn{ transition:background .18s ease, color .18s ease, transform .15s ease; }
+.btn:active{ transform:scale(.96); }
+.card,.eng,.step{ transition:transform .25s ease, box-shadow .25s ease; }
+.card:hover,.eng:hover,.step:hover{ transform:translateY(-4px); box-shadow:0 14px 28px -18px rgba(20,27,46,.3); position:relative; z-index:1; }
+.chip{ transition:transform .15s ease; }
+.chip:hover{ transform:translateY(-1px); }
+.contact-line a{ transition:border-color .15s ease, color .15s ease; }
+
+/* ============================ HEADER ============================ */
+.site-header{ border-bottom:1px solid var(--line); background:var(--paper); position:sticky; top:0; z-index:50; }
+.site-header .wrap{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:22px 24px; flex-wrap:wrap; gap:10px 24px;
+}
+.wordmark{ display:flex; align-items:center; gap:12px; font-family:var(--display); font-weight:600; font-size:21px; }
+.wordmark svg{ height:30px; width:auto; flex-shrink:0; }
+.contact-line{ font-family:var(--mono); font-size:13px; color:var(--ink-soft); text-align:right; }
+.contact-line a{ text-decoration:none; border-bottom:1px solid var(--line); }
+.contact-line a:hover{ border-color:var(--ink-soft); }
+
+/* ============================ HERO ============================ */
+.hero{ padding-top:64px; }
+.hero .eyebrow{ margin-bottom:18px; }
+.hero h1{
+  font-size:clamp(32px,4.6vw,48px); line-height:1.18; max-width:20ch;
+  font-weight:500;
+}
+.hero h1 em{ font-style:italic; color:var(--ink); font-weight:400; }
+.hero__chips{ margin-top:26px; display:flex; gap:10px; flex-wrap:wrap; }
+.hero__sub{ margin-top:26px; max-width:62ch; font-size:18px; color:var(--ink-soft); }
+
+.stats{ margin-top:56px; display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--line); }
+.stats .stat{ padding:26px 28px 0 0; border-right:1px solid var(--line); }
+.stats .stat:last-child{ border-right:none; }
+.stat__num{ font-family:var(--display); font-weight:600; font-size:clamp(26px,3vw,34px); display:block; }
+.stat__label{ font-family:var(--mono); font-size:12.5px; color:var(--ink-soft); margin-top:6px; display:block; }
+@media (max-width:640px){
+  .stats{ grid-template-columns:1fr; }
+  .stats .stat{ border-right:none; border-bottom:1px solid var(--line); padding:20px 0; }
+  .stats .stat:last-child{ border-bottom:none; }
+}
+
+/* ============================ CARD GRIDS ============================ */
+.section-head{ max-width:60ch; }
+.section-head h2{ font-size:clamp(26px,3.2vw,34px); margin-top:10px; font-weight:500; }
+.section-head p{ margin-top:16px; color:var(--ink-soft); font-size:16px; }
+
+.grid-3{ margin-top:44px; display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+.grid-2{ margin-top:44px; display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+.grid-4{ margin-top:44px; display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+@media (max-width:820px){ .grid-3,.grid-4{ grid-template-columns:1fr 1fr; } }
+@media (max-width:640px){ .grid-3,.grid-4,.grid-2{ grid-template-columns:1fr; } }
+
+.card{ background:var(--white); padding:28px; }
+.card__label{ font-family:var(--mono); font-size:13px; font-weight:600; color:var(--changed); }
+.card__title{ font-family:var(--display); font-weight:600; font-size:20px; margin-top:8px; }
+.card__body{ color:var(--ink-soft); font-size:15px; margin-top:10px; }
+
+/* engagement cards */
+.eng{ background:var(--white); padding:32px; display:flex; flex-direction:column; }
+.eng__kicker{ font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); }
+.eng__name{ font-family:var(--display); font-weight:600; font-size:23px; margin-top:8px; }
+.eng__price{ font-family:var(--mono); font-size:14.5px; color:var(--changed); margin-top:8px; }
+.eng__desc{ margin-top:14px; color:var(--ink-soft); font-size:15px; }
+.eng ul{ margin-top:18px; display:flex; flex-direction:column; gap:9px; }
+.eng li{ font-size:14.5px; color:var(--ink-soft); padding-left:18px; position:relative; }
+.eng li::before{ content:"–"; position:absolute; left:0; }
+
+/* trust cards */
+.trust .card__title{ font-size:17px; }
+
+/* steps */
+.step{ background:var(--white); padding:28px; }
+.step__num{ font-family:var(--mono); font-size:12px; color:var(--changed); }
+.step__title{ font-family:var(--display); font-weight:600; font-size:18px; margin-top:8px; }
+.step__body{ color:var(--ink-soft); font-size:14.5px; margin-top:8px; }
+
+/* ============================ CTA ============================ */
+.cta{ background:var(--ink); color:var(--white); }
+.cta h2{ color:var(--white); font-size:clamp(28px,3.6vw,38px); font-weight:500; }
+.cta__body{ margin-top:16px; max-width:56ch; color:#B7BCC9; font-size:16.5px; }
+.cta__row{ margin-top:34px; display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+.btn{
+  display:inline-block; font-family:var(--mono); font-weight:600; font-size:14px;
+  text-transform:uppercase; letter-spacing:.04em; text-decoration:none;
+  background:var(--white); color:var(--ink); padding:15px 24px; border-radius:3px;
+  border:1px solid var(--white);
+}
+.btn:hover{ background:transparent; color:var(--white); }
+.cta__fine{ font-family:var(--mono); font-size:13px; color:#8890A0; }
+
+/* ============================ FOOTER ============================ */
+footer{ padding:36px 0; }
+.footer__name{ font-family:var(--display); font-weight:600; font-size:15px; }
+.footer__legal{ margin-top:12px; font-size:12.5px; color:var(--ink-soft); max-width:74ch; line-height:1.7; }
+.footer__bottom{
+  margin-top:20px; padding-top:16px; border-top:1px solid var(--line);
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px;
+  font-family:var(--mono); font-size:12px; color:var(--ink-soft);
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="wordmark">
+      <svg viewBox="0 0 200 240" aria-hidden="true">
+        <g fill="#141B2E">
+          <rect x="22" y="20" width="38" height="200"/>
+          <rect x="140" y="20" width="38" height="200"/>
+          <polygon points="22,20 60,20 178,220 140,220"/>
+        </g>
+        <g stroke="#141B2E" stroke-width="3" fill="none">
+          <line x1="4" y1="120" x2="132" y2="120"/>
+          <line x1="100" y1="66" x2="100" y2="174"/>
+          <line x1="4" y1="114" x2="4" y2="126"/>
+          <line x1="132" y1="114" x2="132" y2="126"/>
+          <line x1="94" y1="66" x2="106" y2="66"/>
+          <line x1="94" y1="174" x2="106" y2="174"/>
+        </g>
+        <circle cx="100" cy="120" r="9" fill="#A6491F" stroke="#F1F2EC" stroke-width="2"/>
+      </svg>
+      Nexxus Advisory
+    </div>
+    <div class="contact-line">
+      Juan Morales · CMMC Readiness &amp; Documentation<br>
+      <a href="mailto:Juan.morales@NexxusAdvisory.com">Juan.morales@NexxusAdvisory.com</a> · <a href="tel:+18056303793">(805) 630-3793</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">CMMC Level 2 · Small Defense Subcontractors</p>
+      <h1>The third-party audit was suspended <em>on July 13, 2026.</em> The self-assessment wasn't.</h1>
+
+      <div class="hero__chips">
+        <span class="chip chip--changed">Third-party audit: suspended</span>
+        <span class="chip chip--verified">Self-assessment: in force</span>
+      </div>
+
+      <p class="hero__sub">If you handle Controlled Unclassified Information for the DoD, your self-assessment is what stands behind your contracts right now — the outside auditor who was supposed to double-check it has been put on hold, not the requirement itself. Most small shops don't have a compliance person, are under-budgeted, and don't know what's actually still due. That's the gap Nexxus closes — plainly, at a fixed fee, without ever taking custody of your controlled data.</p>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="stat__num">Jul 13</span>
+          <span class="stat__label">2026 · Third-party audit suspended</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num">110</span>
+          <span class="stat__label">Controls · NIST 800-171</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num">~70%</span>
+          <span class="stat__label">Under-budgeted*</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="assumptions">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">What most shops get wrong</p>
+        <h2>Three assumptions <em>that cost six figures.</em></h2>
+        <p>The failure mode isn't your firewall. It's paperwork, scoping, and timing. Getting any of these wrong is what turns a manageable problem into an expensive one.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <p class="card__label">No fixed deadline</p>
+          <p class="card__body">The third-party audit requirement was suspended in July with no new date set. Your real exposure is your next solicitation, option year, or prime questionnaire — none of which wait for Washington.</p>
+        </div>
+        <div class="card">
+          <p class="card__label">20–40%</p>
+          <p class="card__body">The assessor fee, when one's involved, is only a fraction of the bill. Remediation and documentation are where the real cost lives.</p>
+        </div>
+        <div class="card">
+          <p class="card__label">Undocumented = absent</p>
+          <p class="card__body">A control you actually run but never documented fails the assessment. Evidence is the deliverable, not the intent.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="engagements">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">What Nexxus does</p>
+        <h2>Two fixed-fee engagements. <em>You know the number before we start.</em></h2>
+        <p>Both are analysis and documentation work. No hourly billing, no surprise invoices, and nothing that touches or configures your systems — that stays with your IT provider.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="eng">
+          <p class="eng__kicker">Start here</p>
+          <p class="eng__name">Deadline &amp; Scope Map</p>
+          <p class="eng__price">$1,500 – $3,000 · 3–5 days</p>
+          <p class="eng__desc">Exactly where CMMC applies to <em>you</em>, at what level, and your cheapest defensible path — before you spend a dollar on tools or an assessor.</p>
+          <ul>
+            <li>Level 1 vs. Level 2 determination</li>
+            <li>Your real exposure, mapped to your actual contracts</li>
+            <li>Enclave vs. whole-environment scoping call</li>
+            <li>A written map you can hand to leadership</li>
+          </ul>
+        </div>
+        <div class="eng">
+          <p class="eng__kicker">The documentation</p>
+          <p class="eng__name">Gap Assessment &amp; Evidence Package</p>
+          <p class="eng__price">$3,000 – $5,000</p>
+          <p class="eng__desc">Where you stand against all 110 controls, and the paperwork an assessor — or your own signature — actually needs behind it, built, not hand-waved.</p>
+          <ul>
+            <li>Gap analysis across NIST 800-171</li>
+            <li>System Security Plan drafting support</li>
+            <li>POA&amp;M and evidence record</li>
+            <li>A clear punch list for your IT provider</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">How your information is handled</p>
+        <h2>Built so your controlled data <em>never leaves your building.</em></h2>
+        <p>These are the questions an ITAR shop asks before letting anyone near compliance work. Here are the answers, up front.</p>
+      </div>
+
+      <div class="grid-4">
+        <div class="card">
+          <p class="card__title">U.S. person</p>
+          <p class="card__body">I'm a U.S. citizen and person as defined under ITAR. Controlled technical data can be discussed within your own compliance procedures.</p>
+        </div>
+        <div class="card">
+          <p class="card__title">No custody</p>
+          <p class="card__body">The engagements are built so I never hold your CUI, contracts, or credentials. I work from what you tell me and show me.</p>
+        </div>
+        <div class="card">
+          <p class="card__title">NDA first</p>
+          <p class="card__body">A mutual non-disclosure agreement is signed before any working session. Yours or mine.</p>
+        </div>
+        <div class="card">
+          <p class="card__title">Document, not configure</p>
+          <p class="card__body">I analyze and document. I don't touch your network or configure systems — that's your IT provider's lane.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">How it works</p>
+        <h2>Four steps, <em>no mystery.</em></h2>
+      </div>
+
+      <div class="grid-4">
+        <div class="step">
+          <p class="step__num">01</p>
+          <p class="step__title">Intro call</p>
+          <p class="step__body">Fifteen minutes to confirm you're a fit and quote the exact fee.</p>
+        </div>
+        <div class="step">
+          <p class="step__num">02</p>
+          <p class="step__title">NDA and working session</p>
+          <p class="step__body">We sign, then walk through your contract footprint and systems — nothing sensitive changes hands.</p>
+        </div>
+        <div class="step">
+          <p class="step__num">03</p>
+          <p class="step__title">The map</p>
+          <p class="step__body">You get a written report: your level, your real exposure, your cheapest path.</p>
+        </div>
+        <div class="step">
+          <p class="step__num">04</p>
+          <p class="step__title">Go deeper if it makes sense</p>
+          <p class="step__body">If the map shows a documentation gap, the evidence package closes it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <p class="eyebrow" style="color:#8890A0;">Next step</p>
+      <h2 style="margin-top:10px;">Find out where you actually stand.</h2>
+      <p class="cta__body">A fifteen-minute call, no obligation. If you're not in scope, I'll tell you — that answer is free.</p>
+      <div class="cta__row">
+        <a class="btn" href="mailto:Juan.morales@NexxusAdvisory.com?subject=CMMC%20readiness%20call">Book an intro call</a>
+        <span class="cta__fine">Or email Juan.morales@NexxusAdvisory.com · call (805) 630-3793</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="footer__name">Nexxus Advisory · CMMC Readiness &amp; Documentation</p>
+    <p class="footer__legal">*Figure reflects published 2026 industry surveys of defense-contractor CMMC budgeting. This site is general information, not legal advice. Nexxus is a readiness advisor, not a certifying assessor (C3PAO).</p>
+    <div class="footer__bottom">
+      <span>Content current as of Aug 10, 2026 — CMMC program status can change; verify anything time-sensitive before relying on it.</span>
+      <span>© 2026</span>
+    </div>
+  </div></footer>
+
+<script>
+(function(){
+  var header = document.querySelector('.site-header');
+  if (header){
+    var onScroll = function(){ header.classList.toggle('is-scrolled', window.scrollY > 8); };
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  }
+
+  if (!document.documentElement.classList.contains('js-anim')) return;
+
+  function stagger(selector){
+    document.querySelectorAll(selector).forEach(function(group){
+      Array.from(group.children).forEach(function(child, i){
+        child.classList.add('reveal');
+        child.style.setProperty('--d', (i*0.09)+'s');
+      });
+    });
+  }
+  stagger('.grid-2'); stagger('.grid-3'); stagger('.grid-4'); stagger('.cta .wrap');
+  document.querySelectorAll('.section-head').forEach(function(el){ el.classList.add('reveal'); });
+
+  var revealObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        revealObs.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.15, rootMargin:'0px 0px -60px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ revealObs.observe(el); });
+
+  function animateCount(el){
+    var raw = el.textContent.trim();
+    var m = raw.match(/^(~?)(\d+(?:\.\d+)?)(%?)$/);
+    if (!m) return;
+    var prefix=m[1], target=parseFloat(m[2]), suffix=m[3];
+    var start=performance.now(), dur=900;
+    function tick(now){
+      var p = Math.min((now-start)/dur, 1);
+      var eased = 1-Math.pow(1-p,3);
+      el.textContent = prefix + Math.round(target*eased) + suffix;
+      if (p<1) requestAnimationFrame(tick); else el.textContent = raw;
+    }
+    requestAnimationFrame(tick);
+  }
+  var statsEl = document.querySelector('.stats');
+  if (statsEl){
+    var statObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.querySelectorAll('.stat__num').forEach(animateCount);
+          statObs.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.4});
+    statObs.observe(statsEl);
+  }
+})();
+</script>
+
+</body>
+</html>
