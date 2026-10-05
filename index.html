@@ -1,35 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!--
-  NEXXUS ADVISORY — homepage, Phase 2 correction applied
-  =========================================================
-  This is a reconstruction of the live copy at nexxusadvisory.com (fetched
-  Aug 10, 2026), not a pull of your actual source file — I don't have access
-  to your real HTML/CSS/CMS. Everything except the sections marked below is
-  your existing copy, word for word. What changed, and why:
-
-  1. Hero headline + subhead — the old version said self-assessment "stops
-     being enough" on Nov 10. That's backwards now: the third-party audit
-     is what got suspended (July 13). Self-assessment is what's still live.
-  2. First stat tile — "Nov 10 · Phase 2 live" was the specific claim your
-     own training materials flag as the thing to never say once this
-     happened. Replaced with the actual suspension date.
-  3. First "assumption" card — reworded from "your real deadline isn't
-     Nov 10" to "there's no fixed deadline right now," which is the more
-     accurate version of the same underlying point.
-  4. Small wording pass on "deadline" → "exposure" in a couple of supporting
-     lines (scope map bullet, step 3) so nothing still implies a hard date
-     that no longer exists. Pricing, service names, the trust section, and
-     the 4-step process are untouched.
-
-  If this is built on something more specific than plain HTML (a CMS,
-  Webflow, a static-site generator, a React app) send me that source and
-  I'll turn this into an exact patch instead of a full-page replacement.
-
-  To deploy as-is: rename this file to index.html and drag its folder onto
-  Netlify Drop, or push it to the repo your site already deploys from.
--->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
@@ -43,9 +14,9 @@
 })();
 </script>
 <title>Nexxus Advisory — CMMC Readiness for Defense Subcontractors</title>
-<meta name="description" content="Fixed-fee CMMC Level 2 readiness and documentation for small defense subcontractors. Founder-led, no custody of controlled data — built for what's actually still due after the Phase 2 pause.">
+<meta name="description" content="CMMC scoping and documentation for small defense subcontractors. Founder-led, no custody of controlled data — built for what's still in force after the Phase 2 pause.">
 <meta property="og:title" content="Nexxus Advisory — CMMC Readiness for Defense Subcontractors">
-<meta property="og:description" content="The third-party audit was suspended. The self-assessment wasn't. Plain-language CMMC scoping and documentation, fixed fee.">
+<meta property="og:description" content="The third-party certification was paused. The self-assessment wasn't. Plain-language CMMC scoping and documentation for small defense subcontractors.">
 <meta name="theme-color" content="#141B2E">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjQwIj4KCjxnIGZpbGw9IiMxNDFCMkUiPgogIDxyZWN0IHg9IjIyIiB5PSIyMCIgd2lkdGg9IjM4IiBoZWlnaHQ9IjIwMCIvPgogIDxyZWN0IHg9IjE0MCIgeT0iMjAiIHdpZHRoPSIzOCIgaGVpZ2h0PSIyMDAiLz4KICA8cG9seWdvbiBwb2ludHM9IjIyLDIwIDYwLDIwIDE3OCwyMjAgMTQwLDIyMCIvPgo8L2c+CjxnIHN0cm9rZT0iIzE0MUIyRSIgc3Ryb2tlLXdpZHRoPSIzIiBmaWxsPSJub25lIj4KICA8bGluZSB4MT0iNCIgeTE9IjEyMCIgeDI9IjEzMiIgeTI9IjEyMCIvPgogIDxsaW5lIHgxPSIxMDAiIHkxPSI2NiIgeDI9IjEwMCIgeTI9IjE3NCIvPgogIDwhLS0gdGljayBjYXBzIC0tPgogIDxsaW5lIHgxPSI0IiB5MT0iMTE0IiB4Mj0iNCIgeTI9IjEyNiIvPgogIDxsaW5lIHgxPSIxMzIiIHkxPSIxMTQiIHgyPSIxMzIiIHkyPSIxMjYiLz4KICA8bGluZSB4MT0iOTQiIHkxPSI2NiIgeDI9IjEwNiIgeTI9IjY2Ii8+CiAgPGxpbmUgeDE9Ijk0IiB5MT0iMTc0IiB4Mj0iMTA2IiB5Mj0iMTc0Ii8+CjwvZz4KPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTIwIiByPSI5IiBmaWxsPSIjQTY0OTFGIiBzdHJva2U9IiNGMUYyRUMiIHN0cm9rZS13aWR0aD0iMiIvPgo8L3N2Zz4=">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -197,6 +168,7 @@ html.js-anim .stats{ animation-delay:.48s; }
 .card__label{ font-family:var(--mono); font-size:13px; font-weight:600; color:var(--changed); }
 .card__title{ font-family:var(--display); font-weight:600; font-size:20px; margin-top:8px; }
 .card__body{ color:var(--ink-soft); font-size:15px; margin-top:10px; }
+.card .chip{ margin-bottom:6px; }
 
 /* engagement cards */
 .eng{ background:var(--white); padding:32px; display:flex; flex-direction:column; }
@@ -230,6 +202,7 @@ html.js-anim .stats{ animation-delay:.48s; }
 }
 .btn:hover{ background:transparent; color:var(--white); }
 .cta__fine{ font-family:var(--mono); font-size:13px; color:#8890A0; }
+.cta__note{ margin-top:18px; font-family:var(--mono); font-size:13px; color:#8890A0; max-width:62ch; }
 
 /* ============================ FOOTER ============================ */
 footer{ padding:36px 0; }
@@ -266,7 +239,7 @@ footer{ padding:36px 0; }
       Nexxus Advisory
     </div>
     <div class="contact-line">
-      Juan Morales · CMMC Readiness &amp; Documentation<br>
+      CMMC Readiness &amp; Documentation<br>
       <a href="mailto:Juan.morales@NexxusAdvisory.com">Juan.morales@NexxusAdvisory.com</a> · <a href="tel:+18056303793">(805) 630-3793</a>
     </div>
   </div>
@@ -276,53 +249,88 @@ footer{ padding:36px 0; }
 
   <section class="hero">
     <div class="wrap">
-      <p class="eyebrow">CMMC Level 2 · Small Defense Subcontractors</p>
-      <h1>The third-party audit was suspended <em>on July 13, 2026.</em> The self-assessment wasn't.</h1>
+      <p class="eyebrow">CMMC · Small Defense Subcontractors</p>
+      <h1>The third-party certification was paused <em>on July 13, 2026.</em> The self-assessment wasn't.</h1>
 
       <div class="hero__chips">
-        <span class="chip chip--changed">Third-party audit: suspended</span>
-        <span class="chip chip--verified">Self-assessment: in force</span>
+        <span class="chip chip--changed">Phase 2 · third-party certification: paused</span>
+        <span class="chip chip--verified">Phase 1 · self-assessment: in force</span>
       </div>
 
-      <p class="hero__sub">If you handle Controlled Unclassified Information for the DoD, your self-assessment is what stands behind your contracts right now — the outside auditor who was supposed to double-check it has been put on hold, not the requirement itself. Most small shops don't have a compliance person, are under-budgeted, and don't know what's actually still due. That's the gap Nexxus closes — plainly, at a fixed fee, without ever taking custody of your controlled data.</p>
+      <p class="hero__sub">If you handle Controlled Unclassified Information for a DoD prime, the outside assessor who was meant to double-check your self-assessment is on hold. The documentation behind that self-assessment, and the score you post to SPRS, is not. Nexxus writes that documentation — plainly, and without ever taking custody of your controlled data.</p>
 
       <div class="stats">
         <div class="stat">
           <span class="stat__num">Jul 13</span>
-          <span class="stat__label">2026 · Third-party audit suspended</span>
+          <span class="stat__label">2026 · Phase 2 third-party certification paused</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num">Nov 10</span>
+          <span class="stat__label">2025 · Phase 1 self-assessments in force</span>
         </div>
         <div class="stat">
           <span class="stat__num">110</span>
-          <span class="stat__label">Controls · NIST 800-171</span>
-        </div>
-        <div class="stat">
-          <span class="stat__num">~70%</span>
-          <span class="stat__label">Under-budgeted*</span>
+          <span class="stat__label">Requirements · NIST SP 800-171</span>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="assumptions">
+  <section class="status">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">What most shops get wrong</p>
-        <h2>Three assumptions <em>that cost six figures.</em></h2>
-        <p>The failure mode isn't your firewall. It's paperwork, scoping, and timing. Getting any of these wrong is what turns a manageable problem into an expensive one.</p>
+        <p class="eyebrow">Where the program stands</p>
+        <h2>What paused, <em>and what didn't.</em></h2>
+        <p>A reform review of the program is under way. As of our last review, the underlying rules have not changed.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <span class="chip chip--changed">Paused</span>
+          <p class="card__title">Phase 2 — third-party certification</p>
+          <p class="card__body">On July 13, 2026 the Department suspended third-party (C3PAO) Level 2 certification and DIBCAC Level 3 certification while a reform task force reviews the program.</p>
+        </div>
+        <div class="card">
+          <span class="chip chip--verified">Still in force</span>
+          <p class="card__title">Self-assessments, and the clauses behind them</p>
+          <p class="card__body">Level 1 and Level 2 self-assessments with an annual affirmation. DFARS 252.204-7012 safeguarding and 72-hour incident reporting. A posted SPRS score under DFARS 252.204-7019 and -7020. Flow-downs from your prime. Federal enforcement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="worth">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Worth knowing</p>
+        <h2>Six things to understand <em>before your next questionnaire.</em></h2>
+        <p>The failure mode isn't your firewall. It's paperwork, scoping, and the accuracy of what you've said.</p>
       </div>
 
       <div class="grid-3">
         <div class="card">
-          <p class="card__label">No fixed deadline</p>
-          <p class="card__body">The third-party audit requirement was suspended in July with no new date set. Your real exposure is your next solicitation, option year, or prime questionnaire — none of which wait for Washington.</p>
+          <p class="card__label">Paused isn't gone</p>
+          <p class="card__body">The outside assessor is on hold. The DFARS clauses, the posted SPRS score, and the requirements that flow down from your prime are not. Your next solicitation, option year, or prime questionnaire won't wait for Washington.</p>
         </div>
         <div class="card">
-          <p class="card__label">20–40%</p>
-          <p class="card__body">The assessor fee, when one's involved, is only a fraction of the bill. Remediation and documentation are where the real cost lives.</p>
+          <p class="card__label">Enforcement didn't pause</p>
+          <p class="card__body">Federal settlements with defense contractors and a major university have turned on inaccurate cybersecurity statements, not on breaches. Getting hacked wasn't the trigger. Saying something inaccurate was.</p>
         </div>
         <div class="card">
-          <p class="card__label">Undocumented = absent</p>
-          <p class="card__body">A control you actually run but never documented fails the assessment. Evidence is the deliverable, not the intent.</p>
+          <p class="card__label">No paper, no assessment</p>
+          <p class="card__body">A Basic Assessment is based on your System Security Plan. Without one, the DoD methodology treats the assessment as one that couldn't be completed. A control you run but never documented is, on paper, a control you don't have.</p>
+        </div>
+        <div class="card">
+          <p class="card__label">A plan of action earns no points</p>
+          <p class="card__body">A requirement that isn't implemented is scored as not implemented, whether or not a plan exists to fix it. And the score you post comes with the date you say you'll reach 110 — a representation, not a hope.</p>
+        </div>
+        <div class="card">
+          <p class="card__label">Old machines aren't disqualifying</p>
+          <p class="card__body">Equipment that can't meet a requirement, such as an older machine controller, can be documented as a specialized asset and described, with its mitigations, in the System Security Plan. Age alone isn't a barrier.</p>
+        </div>
+        <div class="card">
+          <p class="card__label">Level 1 has no grace period</p>
+          <p class="card__body">At Level 1, all 15 requirements (FAR 52.204-21) have to be met before the annual affirmation is signed. A plan of action isn't permitted at any point.</p>
         </div>
       </div>
     </div>
@@ -332,33 +340,65 @@ footer{ padding:36px 0; }
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">What Nexxus does</p>
-        <h2>Two fixed-fee engagements. <em>You know the number before we start.</em></h2>
-        <p>Both are analysis and documentation work. No hourly billing, no surprise invoices, and nothing that touches or configures your systems — that stays with your IT provider.</p>
+        <h2>Two engagements. <em>Both are analysis and documentation.</em></h2>
+        <p>We write the paperwork. Nothing we do touches or configures your systems — that stays with your IT provider.</p>
       </div>
 
       <div class="grid-2">
         <div class="eng">
           <p class="eng__kicker">Start here</p>
-          <p class="eng__name">Deadline &amp; Scope Map</p>
-          <p class="eng__price">$1,500 – $3,000 · 3–5 days</p>
-          <p class="eng__desc">Exactly where CMMC applies to <em>you</em>, at what level, and your cheapest defensible path — before you spend a dollar on tools or an assessor.</p>
+          <p class="eng__name">Scope Map</p>
+          <p class="eng__price">Site visit + written scoping document</p>
+          <p class="eng__desc">A short visit to your shop and a written map of where controlled information actually lives, so everything that follows is aimed at the right boundary.</p>
           <ul>
-            <li>Level 1 vs. Level 2 determination</li>
-            <li>Your real exposure, mapped to your actual contracts</li>
-            <li>Enclave vs. whole-environment scoping call</li>
-            <li>A written map you can hand to leadership</li>
+            <li>Where controlled information enters, moves, and is stored</li>
+            <li>The systems, people, and places inside your boundary</li>
+            <li>The places scope quietly grows: a programmer's personal laptop, email auto-forwarding, a second building</li>
+            <li>A written document you can hand to leadership</li>
           </ul>
         </div>
         <div class="eng">
           <p class="eng__kicker">The documentation</p>
-          <p class="eng__name">Gap Assessment &amp; Evidence Package</p>
-          <p class="eng__price">$3,000 – $5,000</p>
-          <p class="eng__desc">Where you stand against all 110 controls, and the paperwork an assessor — or your own signature — actually needs behind it, built, not hand-waved.</p>
+          <p class="eng__name">Full Write-up</p>
+          <p class="eng__price">The paperwork behind your self-assessment</p>
+          <p class="eng__desc">The documents your self-assessment rests on, written from what we see in your shop and checked requirement by requirement against the DoD Assessment Methodology.</p>
           <ul>
-            <li>Gap analysis across NIST 800-171</li>
-            <li>System Security Plan drafting support</li>
-            <li>POA&amp;M and evidence record</li>
-            <li>A clear punch list for your IT provider</li>
+            <li>System Security Plan</li>
+            <li>Score worksheet, built from the Methodology's own weight table</li>
+            <li>Plan of action for the gaps that remain</li>
+            <li>Supporting policies</li>
+            <li>An evidence binder organized so you can find anything when asked</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="scope">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Plain boundaries</p>
+        <h2>What we do, <em>and what we don't.</em></h2>
+      </div>
+
+      <div class="grid-2">
+        <div class="eng">
+          <p class="eng__kicker">We do</p>
+          <ul>
+            <li>Map the scope of where controlled information lives in your shop</li>
+            <li>Write your System Security Plan</li>
+            <li>Work out your score from the Methodology</li>
+            <li>Write plans of action and supporting policies</li>
+          </ul>
+        </div>
+        <div class="eng">
+          <p class="eng__kicker">We don't</p>
+          <ul>
+            <li>Audit, certify, or assess you — we are not a C3PAO</li>
+            <li>Implement or configure anything on your systems</li>
+            <li>Give legal opinions</li>
+            <li>Take custody of your controlled information</li>
+            <li>Touch your SPRS or PIEE credentials — you post your own score, on your own machine</li>
           </ul>
         </div>
       </div>
@@ -370,25 +410,25 @@ footer{ padding:36px 0; }
       <div class="section-head">
         <p class="eyebrow">How your information is handled</p>
         <h2>Built so your controlled data <em>never leaves your building.</em></h2>
-        <p>These are the questions an ITAR shop asks before letting anyone near compliance work. Here are the answers, up front.</p>
+        <p>These are the questions a defense shop asks before letting anyone near compliance work. Here are the answers, up front.</p>
       </div>
 
       <div class="grid-4">
         <div class="card">
-          <p class="card__title">U.S. person</p>
-          <p class="card__body">I'm a U.S. citizen and person as defined under ITAR. Controlled technical data can be discussed within your own compliance procedures.</p>
-        </div>
-        <div class="card">
           <p class="card__title">No custody</p>
-          <p class="card__body">The engagements are built so I never hold your CUI, contracts, or credentials. I work from what you tell me and show me.</p>
+          <p class="card__body">We never hold your CUI, contracts, or credentials. We work from what you tell us and show us on site.</p>
         </div>
         <div class="card">
-          <p class="card__title">NDA first</p>
-          <p class="card__body">A mutual non-disclosure agreement is signed before any working session. Yours or mine.</p>
+          <p class="card__title">Nothing sensitive by email</p>
+          <p class="card__body">Please don't send drawings, contracts, or controlled information — not in a first message, and not later. We don't need copies, and we won't accept them.</p>
         </div>
         <div class="card">
           <p class="card__title">Document, not configure</p>
-          <p class="card__body">I analyze and document. I don't touch your network or configure systems — that's your IT provider's lane.</p>
+          <p class="card__body">We analyze and document. We don't touch your network or configure systems — that's your IT provider's lane.</p>
+        </div>
+        <div class="card">
+          <p class="card__title">Your credentials stay yours</p>
+          <p class="card__body">You post your own score, on your own machine. We never touch your SPRS or PIEE login.</p>
         </div>
       </div>
     </div>
@@ -405,23 +445,33 @@ footer{ padding:36px 0; }
         <div class="step">
           <p class="step__num">01</p>
           <p class="step__title">Intro call</p>
-          <p class="step__body">Fifteen minutes to confirm you're a fit and quote the exact fee.</p>
+          <p class="step__body">Fifteen minutes to see whether we're a fit. If we're not the right fit, we'll say so.</p>
         </div>
         <div class="step">
           <p class="step__num">02</p>
-          <p class="step__title">NDA and working session</p>
-          <p class="step__body">We sign, then walk through your contract footprint and systems — nothing sensitive changes hands.</p>
+          <p class="step__title">Site visit</p>
+          <p class="step__body">A few hours at your shop. We start at the desk, then walk the floor with a short checklist. We look; we don't take copies.</p>
         </div>
         <div class="step">
           <p class="step__num">03</p>
-          <p class="step__title">The map</p>
-          <p class="step__body">You get a written report: your level, your real exposure, your cheapest path.</p>
+          <p class="step__title">The scope map</p>
+          <p class="step__body">You get a written document: where controlled information lives and what sits inside your boundary.</p>
         </div>
         <div class="step">
           <p class="step__num">04</p>
-          <p class="step__title">Go deeper if it makes sense</p>
-          <p class="step__body">If the map shows a documentation gap, the evidence package closes it.</p>
+          <p class="step__title">Full write-up, if it makes sense</p>
+          <p class="step__body">If the map shows documentation to write, we write it. Every deliverable gets a second-person review before it reaches you.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Who we are</p>
+        <h2>A two-person practice, <em>based in Ventura County.</em></h2>
+        <p>Nexxus Advisory is a founder-led practice in Ventura County, California. Juan Morales leads delivery; Josh leads client relationships. We write the documentation behind defense subcontractors' self-assessments, and nothing else.</p>
       </div>
     </div>
   </section>
@@ -429,12 +479,13 @@ footer{ padding:36px 0; }
   <section class="cta">
     <div class="wrap">
       <p class="eyebrow" style="color:#8890A0;">Next step</p>
-      <h2 style="margin-top:10px;">Find out where you actually stand.</h2>
-      <p class="cta__body">A fifteen-minute call, no obligation. If you're not in scope, I'll tell you — that answer is free.</p>
+      <h2 style="margin-top:10px;">Start with a fifteen-minute call.</h2>
+      <p class="cta__body">No obligation. If we're not the right fit, we'll say so — that answer is free.</p>
       <div class="cta__row">
         <a class="btn" href="mailto:Juan.morales@NexxusAdvisory.com?subject=CMMC%20readiness%20call">Book an intro call</a>
         <span class="cta__fine">Or email Juan.morales@NexxusAdvisory.com · call (805) 630-3793</span>
       </div>
+      <p class="cta__note">Please don't attach drawings, contracts, or controlled information to your message.</p>
     </div>
   </section>
 
@@ -443,12 +494,13 @@ footer{ padding:36px 0; }
 <footer>
   <div class="wrap">
     <p class="footer__name">Nexxus Advisory · CMMC Readiness &amp; Documentation</p>
-    <p class="footer__legal">*Figure reflects published 2026 industry surveys of defense-contractor CMMC budgeting. This site is general information, not legal advice. Nexxus is a readiness advisor, not a certifying assessor (C3PAO).</p>
+    <p class="footer__legal">This site is general information, not legal advice. Nexxus Advisory prepares documentation. It is not a certifying assessor (C3PAO), and it does not audit, certify, or take custody of controlled information.</p>
     <div class="footer__bottom">
-      <span>Content current as of Aug 10, 2026 — CMMC program status can change; verify anything time-sensitive before relying on it.</span>
+      <span>Program status as reviewed September 14, 2026 — CMMC program status can change; verify anything time-sensitive before relying on it.</span>
       <span>© 2026</span>
     </div>
-  </div></footer>
+  </div>
+</footer>
 
 <script>
 (function(){
