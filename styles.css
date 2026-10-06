@@ -273,7 +273,7 @@ a:hover{ color:var(--blue-dark); text-decoration-thickness:2px; }
     linear-gradient(var(--ink),var(--ink)) center / 16px 2px no-repeat,
     linear-gradient(var(--ink),var(--ink)) center / 2px 16px no-repeat;
 }
-.faq details[open] > summary::after{ background:linear-gradient(var(--ink),var(--ink)) center / 16px 2px no-repeat; }
+.faq details[open] > summary::after{ background-size:16px 2px, 2px 0; }
 .faq summary:hover{ color:var(--blue-dark); }
 .faq-answer{ max-width:42rem; padding:0 0 24px; }
 
@@ -328,3 +328,29 @@ a:hover{ color:var(--blue-dark); text-decoration-thickness:2px; }
   .contact, .contact h2, .contact-item a, .contact .warning{ color:#000; }
   .contact-sub, .contact-key, .contact-note{ color:#333; }
 }
+
+/* ---------- Motion ----------
+   Small and CSS-only (the site runs no scripts). Everything here is skipped
+   for visitors whose device asks for reduced motion. */
+@keyframes rise{ from{ opacity:0; transform:translateY(10px); } to{ opacity:1; transform:none; } }
+@keyframes reveal{ from{ opacity:0; transform:translateY(-4px); } to{ opacity:1; transform:none; } }
+@media (prefers-reduced-motion: no-preference){
+  /* Opening: one quick fade-up on load, staggered */
+  .hero h1, .hero .lede, .hero-status, .hero .actions{ animation:rise .55s cubic-bezier(.2,.7,.2,1) both; }
+  .hero .lede{ animation-delay:.08s; }
+  .hero .lede + .lede{ animation-delay:.14s; }
+  .hero-status{ animation-delay:.2s; }
+  .hero .actions{ animation-delay:.26s; }
+  /* Questions: the + folds into a minus, and the answer fades in */
+  .faq summary::after{ transition:background-size .2s ease; }
+  .faq details[open] > .faq-answer{ animation:reveal .22s ease both; }
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference){
+  /* Lift on hover, mouse only (not on phones) */
+  .btn{ transition:background-color .15s ease, color .15s ease, border-color .15s ease, transform .15s ease, box-shadow .15s ease; }
+  .btn:hover{ transform:translateY(-1px); box-shadow:0 6px 14px -8px rgba(20,27,46,.45); }
+  .btn:active{ transform:none; box-shadow:none; }
+  .service{ transition:transform .2s ease, box-shadow .2s ease; }
+  .service:hover{ transform:translateY(-3px); box-shadow:0 14px 28px -16px rgba(20,27,46,.35); }
+}
+@media print{ *{ animation:none !important; transition:none !important; } }
