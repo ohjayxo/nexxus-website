@@ -321,6 +321,55 @@ a:hover{ color:var(--blue-dark); text-decoration-thickness:2px; }
 .notfound p{ margin-top:20px; max-width:34em; font-size:1.1875rem; color:var(--ink-2); }
 
 /* Print */
+/* ---------- Diagrams ----------
+   Inline SVG and plain HTML, styled here only (no inline styles, so the
+   security headers stay unchanged). */
+.figure{ margin:40px 0 0; }
+.figure figcaption{ margin-top:14px; max-width:46rem; color:var(--ink-2); font-size:1rem; }
+.dg{ display:block; width:100%; height:auto; }
+.dg-tall{ display:none; max-width:420px; margin:0 auto; }
+@media (max-width:960px){ .dg-wide{ display:none; } .dg-tall{ display:block; } }
+.dg text{ font-family:var(--sans); fill:var(--ink); font-size:15px; }
+.dg .t-strong{ font-family:var(--cond); font-weight:600; font-size:18px; }
+.dg .t-small{ font-size:13px; fill:var(--ink-2); }
+.dg .t-caps{ font-family:var(--cond); font-weight:700; font-size:14px; letter-spacing:.08em; }
+.dg .node{ fill:var(--paper); stroke:var(--ink); stroke-width:1.5; }
+.dg .node-out{ fill:var(--paper); stroke:var(--ink-2); stroke-width:1.5; }
+.dg .boundary{ fill:rgba(255,255,255,.55); stroke:var(--ink); stroke-width:2; stroke-dasharray:9 6; }
+.dg .flow{ fill:none; stroke:var(--ink); stroke-width:1.75; }
+.dg .ah-ink{ fill:var(--ink); }
+.dg .grow{ fill:var(--hold-bg); stroke:var(--hold); stroke-width:1.5; stroke-dasharray:5 4; }
+.dg .grow-line{ fill:none; stroke:var(--hold); stroke-width:1.75; stroke-dasharray:5 4; }
+.dg .ah-hold{ fill:var(--hold); }
+.dg .badge{ fill:var(--hold); }
+.dg .badge-t{ fill:#fff; font-family:var(--cond); font-weight:700; font-size:14px; }
+.dg .us{ fill:#E8EEF8; stroke:var(--blue); stroke-width:1.5; }
+.dg .us-line{ fill:none; stroke:var(--blue); stroke-width:1.5; stroke-dasharray:2 4; }
+.legend{ margin-top:18px; display:grid; grid-template-columns:repeat(auto-fit,minmax(20rem,1fr)); gap:6px 24px; padding:0; list-style:none; font-size:1rem; }
+.legend li{ display:flex; gap:10px; align-items:baseline; }
+.legend .n{ flex:none; display:inline-grid; place-items:center; width:22px; height:22px; border-radius:50%; background:var(--hold); color:#fff; font-family:var(--cond); font-weight:700; font-size:.875rem; }
+
+/* Who does what */
+.roles{ margin-top:36px; display:grid; grid-template-columns:minmax(0,1fr) 7.5rem minmax(0,1fr) 7.5rem minmax(0,1fr); align-items:stretch; }
+.role{ background:var(--paper); border:1px solid var(--line); border-top:4px solid var(--ink); border-radius:0 0 4px 4px; padding:22px 22px 18px; }
+.role-us{ border-top-color:var(--blue); box-shadow:0 0 0 2px var(--blue) inset; }
+.role-who{ font-family:var(--cond); font-weight:600; font-size:1rem; color:var(--blue); }
+.role h3{ margin-top:2px; font-size:1.5rem; font-weight:600; }
+.role ul{ margin-top:12px; border-top:1px solid var(--line); }
+.role li{ position:relative; padding:9px 0 9px 20px; border-bottom:1px solid var(--line); font-size:1rem; }
+.role li::before{ content:""; position:absolute; left:0; top:1.15em; width:10px; height:2px; background:var(--blue); }
+.role-note{ margin-top:12px; font-size:.9375rem; color:var(--ink-2); }
+.hand{ display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; padding:0 8px; text-align:center; font-size:.875rem; color:var(--ink-2); line-height:1.3; }
+.hand svg{ width:56px; height:16px; color:var(--blue); }
+.hand-left svg{ transform:scaleX(-1); }
+.roles-foot{ margin-top:16px; color:var(--ink-2); font-size:1rem; }
+@media (max-width:860px){
+  .roles{ grid-template-columns:minmax(0,1fr); }
+  .hand{ flex-direction:row; padding:10px 0; }
+  .hand svg{ transform:rotate(90deg); width:40px; }
+  .hand-left svg{ transform:rotate(-90deg); }
+}
+
 @media print{
   .site-header, .skip-link, .actions, .callbar{ display:none; }
   body{ padding-bottom:0; }
