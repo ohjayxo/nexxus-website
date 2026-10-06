@@ -75,7 +75,7 @@ a:hover{ color:var(--blue-dark); text-decoration-thickness:2px; }
   font-family:var(--cond); font-weight:600; font-size:1.375rem; line-height:1;
 }
 .brand:hover{ color:var(--ink); }
-.brand svg{ width:24px; height:29px; flex:none; }
+.brand .mark{ width:60px; height:20px; flex:none; }
 .site-nav ul{ display:flex; gap:2px; }
 .site-nav a{
   display:block; padding:10px 10px; border-radius:4px;
@@ -314,7 +314,8 @@ a:hover{ color:var(--blue-dark); text-decoration-thickness:2px; }
 
 /* Footer */
 .site-footer{ padding:40px 0 48px; font-size:.9375rem; color:var(--ink-2); }
-.footer-name{ font-family:var(--cond); font-weight:600; font-size:1.1875rem; color:var(--ink); }
+.footer-name{ font-family:var(--cond); font-weight:600; font-size:1.1875rem; color:var(--ink); display:flex; align-items:center; gap:10px; }
+.footer-name .mark{ width:54px; height:18px; flex:none; }
 .site-footer p + p{ margin-top:8px; }
 .footer-meta{
   margin-top:20px; padding-top:16px; border-top:1px solid var(--line);

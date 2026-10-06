@@ -1,16 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240">
-<g fill="#141B2E">
-  <rect x="22" y="20" width="38" height="200"/>
-  <rect x="140" y="20" width="38" height="200"/>
-  <polygon points="22,20 60,20 178,220 140,220"/>
-</g>
-<g stroke="#141B2E" stroke-width="3" fill="none">
-  <line x1="4" y1="120" x2="132" y2="120"/>
-  <line x1="100" y1="66" x2="100" y2="174"/>
-  <line x1="4" y1="114" x2="4" y2="126"/>
-  <line x1="132" y1="114" x2="132" y2="126"/>
-  <line x1="94" y1="66" x2="106" y2="66"/>
-  <line x1="94" y1="174" x2="106" y2="174"/>
-</g>
-<circle cx="100" cy="120" r="9" fill="#A6491F" stroke="#FFFFFF" stroke-width="2"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2200 2200"><rect width="2200" height="2200" rx="360" fill="#F7F5F0"/><path fill="#000" transform="translate(138 781)" d="M1371 5 1045 3 836 328 836 1 419 6 1 629 414 632 624 323 626 637 949 634Z M1916 3 1413 9 985 636 1285 636 1495 338 1493 635 1923 635Z"/></svg>
