@@ -182,6 +182,39 @@
         <h2 id="services-title">What we do</h2>
         <p>We offer two engagements. Both are paperwork. We write the documents; your IT provider does the technical work.</p>
       </div>
+      <div class="roles" role="group" aria-label="Who does what">
+        <div class="role">
+          <p class="role-who">You</p>
+          <h3>Decide and sign</h3>
+          <ul>
+            <li>Decide whether to go further after the scope map</li>
+            <li>Sign your self-assessment</li>
+            <li>Post your own score in SPRS, on your own computer</li>
+          </ul>
+        </div>
+        <div class="hand hand-left"><svg viewBox="0 0 56 16" aria-hidden="true" focusable="false"><path d="M2 8H50" stroke="currentColor" stroke-width="2"></path><path d="M44 2L52 8L44 14" fill="none" stroke="currentColor" stroke-width="2"></path></svg><span>Documents, and a walkthrough of the binder</span></div>
+        <div class="role role-us">
+          <p class="role-who">Nexxus</p>
+          <h3>Write the documents</h3>
+          <ul>
+            <li>Scope map</li>
+            <li>System Security Plan</li>
+            <li>Plan of action</li>
+            <li>Policies and the evidence binder</li>
+          </ul>
+          <p class="role-note">A second person checks each one before you get it.</p>
+        </div>
+        <div class="hand"><svg viewBox="0 0 56 16" aria-hidden="true" focusable="false"><path d="M2 8H50" stroke="currentColor" stroke-width="2"></path><path d="M44 2L52 8L44 14" fill="none" stroke="currentColor" stroke-width="2"></path></svg><span>The plan of action: their list of what’s left to do</span></div>
+        <div class="role">
+          <p class="role-who">Your IT provider</p>
+          <h3>Do the technical work</h3>
+          <ul>
+            <li>Install, set up, and run your systems</li>
+            <li>Work through the plan of action’s list</li>
+          </ul>
+        </div>
+      </div>
+      <p class="roles-foot">We don’t install, set up, or run your systems, and we don’t log in to SPRS or PIEE for you.</p>
       <div class="services">
         <article class="service">
           <p class="service-when">Start here</p>
@@ -258,6 +291,150 @@
         <li>We look at where information goes, not at the information itself. We walk your office and floor with a checklist and ask who receives drawings, where files are saved, and what gets emailed. We don’t open, copy, or take drawings or files.</li>
         <li>Your IT provider keeps the technical work: installing, setting up, and running your systems.</li>
       </ul>
+      <figure class="figure flow-map">
+        <svg class="dg dg-wide" viewBox="0 0 1040 600" role="img" aria-labelledby="flow-title flow-desc">
+        <title id="flow-title">Where controlled information goes in an example shop</title>
+        <desc id="flow-desc">Drawings come in from the prime by email to the office, are saved on the file server, go to the CAM programming PC, then to the machines on the floor and the quality room. First article and CMM reports go back to the prime. Five places where scope quietly grows are marked: email that forwards automatically, the estimator quoting off the same drawings, a programmer's personal laptop, the reports going back to the prime, and a second building. Nexxus sits outside the shop: we look at where information goes, not at the information itself.</desc>
+        <defs>
+        <marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ah-ink"/></marker>
+        <marker id="ah-hold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ah-hold"/></marker>
+        </defs>
+        <rect class="boundary" x="230" y="60" width="560" height="480" rx="8"/>
+        <text class="t-caps" x="252" y="92" text-anchor="start">YOUR SHOP</text>
+        <text class="t-small" x="252" y="112" text-anchor="start">the boundary the scope map draws</text>
+        <rect class="node-out" x="20" y="230" width="160" height="80" rx="4"/>
+        <text class="t-strong" x="100.0" y="267.0" text-anchor="middle">Your prime</text>
+        <text class="t-small" x="100.0" y="286.0" text-anchor="middle">sends the drawings</text>
+        <rect class="node" x="260" y="140" width="170" height="70" rx="4"/>
+        <text class="t-strong" x="345.0" y="172.0" text-anchor="middle">Office</text>
+        <text class="t-small" x="345.0" y="191.0" text-anchor="middle">email, quotes</text>
+        <rect class="node" x="260" y="300" width="170" height="70" rx="4"/>
+        <text class="t-strong" x="345.0" y="332.0" text-anchor="middle">File server</text>
+        <text class="t-small" x="345.0" y="351.0" text-anchor="middle">where files are saved</text>
+        <rect class="node" x="480" y="300" width="170" height="70" rx="4"/>
+        <text class="t-strong" x="565.0" y="332.0" text-anchor="middle">CAM PC</text>
+        <text class="t-small" x="565.0" y="351.0" text-anchor="middle">programs the machines</text>
+        <rect class="node" x="480" y="440" width="170" height="70" rx="4"/>
+        <text class="t-strong" x="565.0" y="472.0" text-anchor="middle">Shop floor</text>
+        <text class="t-small" x="565.0" y="491.0" text-anchor="middle">the machines</text>
+        <rect class="node" x="260" y="440" width="170" height="70" rx="4"/>
+        <text class="t-strong" x="345.0" y="472.0" text-anchor="middle">Quality room</text>
+        <text class="t-small" x="345.0" y="491.0" text-anchor="middle">CMM, first articles</text>
+        <path class="flow" d="M180 262 C 215 262, 222 178, 256 176" marker-end="url(#ah-ink)"/>
+        <text class="t-small" x="100" y="212" text-anchor="middle">drawings come in by email</text>
+        <path class="flow" d="M345 210 L345 296" marker-end="url(#ah-ink)"/>
+        <text class="t-small" x="352" y="258" text-anchor="start">saved</text>
+        <path class="flow" d="M430 335 L476 335" marker-end="url(#ah-ink)"/>
+        <path class="flow" d="M565 370 L565 436" marker-end="url(#ah-ink)"/>
+        <text class="t-small" x="572" y="408" text-anchor="start">programs</text>
+        <path class="flow" d="M480 475 L434 475" marker-end="url(#ah-ink)"/>
+        <text class="t-small" x="457" y="466" text-anchor="middle">parts</text>
+        <path class="flow" d="M260 475 L100 475 L100 314" marker-end="url(#ah-ink)"/>
+        <circle class="badge" cx="200" cy="475" r="12"/><text class="badge-t" x="200" y="479.5" text-anchor="middle">4</text>
+        <text class="t-small" x="30" y="500" text-anchor="start">FAIR and CMM reports</text>
+        <text class="t-small" x="30" y="518" text-anchor="start">go back to the prime</text>
+        <path class="grow-line" d="M300 140 L300 120 L200 120" marker-end="url(#ah-hold)"/>
+        <rect class="grow" x="20" y="80" width="180" height="70" rx="4"/>
+        <text class="t-strong" x="110.0" y="112.0" text-anchor="middle">Forwarded email</text>
+        <text class="t-small" x="110.0" y="131.0" text-anchor="middle">forwards automatically</text>
+        <circle class="badge" cx="20" cy="80" r="12"/><text class="badge-t" x="20" y="84.5" text-anchor="middle">2</text>
+        <path class="grow-line" d="M430 175 L476 175"/>
+        <rect class="grow" x="480" y="140" width="170" height="70" rx="4"/>
+        <text class="t-strong" x="565.0" y="172.0" text-anchor="middle">Estimator</text>
+        <text class="t-small" x="565.0" y="191.0" text-anchor="middle">quotes off the drawings</text>
+        <circle class="badge" cx="480" cy="140" r="12"/><text class="badge-t" x="480" y="144.5" text-anchor="middle">3</text>
+        <path class="grow-line" d="M650 335 L826 335" marker-end="url(#ah-hold)"/>
+        <rect class="grow" x="830" y="300" width="190" height="70" rx="4"/>
+        <text class="t-strong" x="925.0" y="332.0" text-anchor="middle">Personal laptop</text>
+        <text class="t-small" x="925.0" y="351.0" text-anchor="middle">the programmer's own</text>
+        <circle class="badge" cx="830" cy="300" r="12"/><text class="badge-t" x="830" y="304.5" text-anchor="middle">1</text>
+        <path class="grow-line" d="M650 475 L826 475" marker-end="url(#ah-hold)"/>
+        <rect class="grow" x="830" y="440" width="190" height="70" rx="4"/>
+        <text class="t-strong" x="925.0" y="472.0" text-anchor="middle">Second building</text>
+        <text class="t-small" x="925.0" y="491.0" text-anchor="middle">if you have one</text>
+        <circle class="badge" cx="830" cy="440" r="12"/><text class="badge-t" x="830" y="444.5" text-anchor="middle">5</text>
+        <rect class="us" x="830" y="60" width="190" height="150" rx="4"/>
+        <text class="t-strong" x="925" y="92" text-anchor="middle">Nexxus</text>
+        <text class="t-small" x="925" y="118" text-anchor="middle">We look at where</text>
+        <text class="t-small" x="925" y="136" text-anchor="middle">information goes,</text>
+        <text class="t-small" x="925" y="154" text-anchor="middle">not at the</text>
+        <text class="t-small" x="925" y="172" text-anchor="middle">information itself.</text>
+        <path class="us-line" d="M830 135 L792 135"/>
+        </svg>
+        <svg class="dg dg-tall" viewBox="0 0 360 1010" role="img" aria-labelledby="flow-title-m flow-desc-m">
+        <title id="flow-title-m">Where controlled information goes in an example shop</title>
+        <desc id="flow-desc-m">Same diagram, arranged top to bottom for small screens.</desc>
+        <defs>
+        <marker id="ahm-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ahm-ink"/></marker>
+        <marker id="ahm-hold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ahm-hold"/></marker>
+        </defs>
+        <rect class="node-out" x="16" y="10" width="165" height="58" rx="4"/>
+        <text class="t-strong" x="98.5" y="36.0" text-anchor="middle">Your prime</text>
+        <text class="t-small" x="98.5" y="55.0" text-anchor="middle">sends the drawings</text>
+        <rect class="boundary" x="8" y="112" width="344" height="682" rx="8"/>
+        <text class="t-caps" x="340" y="140" text-anchor="end">YOUR SHOP</text>
+        <text class="t-small" x="340" y="158" text-anchor="end">the boundary the scope map draws</text>
+        <rect class="node" x="16" y="190" width="165" height="62" rx="4"/>
+        <text class="t-strong" x="98.5" y="218.0" text-anchor="middle">Office</text>
+        <text class="t-small" x="98.5" y="237.0" text-anchor="middle">email, quotes</text>
+        <rect class="node" x="16" y="310" width="165" height="62" rx="4"/>
+        <text class="t-strong" x="98.5" y="338.0" text-anchor="middle">File server</text>
+        <text class="t-small" x="98.5" y="357.0" text-anchor="middle">where files are saved</text>
+        <rect class="node" x="16" y="430" width="165" height="62" rx="4"/>
+        <text class="t-strong" x="98.5" y="458.0" text-anchor="middle">CAM PC</text>
+        <text class="t-small" x="98.5" y="477.0" text-anchor="middle">programs the machines</text>
+        <rect class="node" x="16" y="550" width="165" height="62" rx="4"/>
+        <text class="t-strong" x="98.5" y="578.0" text-anchor="middle">Shop floor</text>
+        <text class="t-small" x="98.5" y="597.0" text-anchor="middle">the machines</text>
+        <rect class="node" x="16" y="670" width="165" height="62" rx="4"/>
+        <text class="t-strong" x="98.5" y="698.0" text-anchor="middle">Quality room</text>
+        <text class="t-small" x="98.5" y="717.0" text-anchor="middle">CMM, first articles</text>
+        <rect class="node-out" x="95" y="850" width="170" height="58" rx="4"/>
+        <text class="t-strong" x="180.0" y="876.0" text-anchor="middle">Your prime</text>
+        <text class="t-small" x="180.0" y="895.0" text-anchor="middle">gets reports back</text>
+        <path class="flow" d="M98 68 L98 186" marker-end="url(#ahm-ink)"/>
+        <text class="t-small" x="110" y="96" text-anchor="start">drawings come in by email</text>
+        <path class="flow" d="M98 252 L98 306" marker-end="url(#ahm-ink)"/>
+        <path class="flow" d="M98 372 L98 426" marker-end="url(#ahm-ink)"/>
+        <path class="flow" d="M98 492 L98 546" marker-end="url(#ahm-ink)"/>
+        <path class="flow" d="M98 612 L98 666" marker-end="url(#ahm-ink)"/>
+        <path class="flow" d="M98 732 L98 818 L180 818 L180 846" marker-end="url(#ahm-ink)"/>
+        <circle class="badge" cx="138" cy="818" r="12"/><text class="badge-t" x="138" y="822.5" text-anchor="middle">4</text>
+        <text class="t-small" x="192" y="840" text-anchor="start">FAIR and CMM reports</text>
+        <path class="grow-line" d="M181 221 L198 221"/>
+        <rect class="grow" x="200" y="190" width="146" height="62" rx="4"/>
+        <text class="t-strong" x="273.0" y="218.0" text-anchor="middle">Estimator</text>
+        <text class="t-small" x="273.0" y="237.0" text-anchor="middle">quotes off drawings</text>
+        <circle class="badge" cx="200" cy="190" r="12"/><text class="badge-t" x="200" y="194.5" text-anchor="middle">3</text>
+        <path class="grow-line" d="M181 235 L190 235 L190 300 L198 300"/>
+        <rect class="grow" x="200" y="280" width="146" height="62" rx="4"/>
+        <text class="t-strong" x="273.0" y="308.0" text-anchor="middle">Forwarded email</text>
+        <text class="t-small" x="273.0" y="327.0" text-anchor="middle">forwards automatically</text>
+        <circle class="badge" cx="200" cy="280" r="12"/><text class="badge-t" x="200" y="284.5" text-anchor="middle">2</text>
+        <path class="grow-line" d="M181 461 L198 461"/>
+        <rect class="grow" x="200" y="430" width="146" height="62" rx="4"/>
+        <text class="t-strong" x="273.0" y="458.0" text-anchor="middle">Personal laptop</text>
+        <text class="t-small" x="273.0" y="477.0" text-anchor="middle">the programmer's own</text>
+        <circle class="badge" cx="200" cy="430" r="12"/><text class="badge-t" x="200" y="434.5" text-anchor="middle">1</text>
+        <path class="grow-line" d="M181 581 L198 581"/>
+        <rect class="grow" x="200" y="550" width="146" height="62" rx="4"/>
+        <text class="t-strong" x="273.0" y="578.0" text-anchor="middle">Second building</text>
+        <text class="t-small" x="273.0" y="597.0" text-anchor="middle">if you have one</text>
+        <circle class="badge" cx="200" cy="550" r="12"/><text class="badge-t" x="200" y="554.5" text-anchor="middle">5</text>
+        <rect class="us" x="16" y="928" width="328" height="74" rx="4"/>
+        <text class="t-strong" x="180" y="955" text-anchor="middle">Nexxus</text>
+        <text class="t-small" x="180" y="978" text-anchor="middle">We look at where information goes,</text>
+        <text class="t-small" x="180" y="995" text-anchor="middle">not at the information itself.</text>
+        </svg>
+        <figcaption>An example shop. Every shop is different; the site visit maps yours. Orange marks the places where scope quietly grows:</figcaption>
+        <ol class="legend" role="list">
+          <li><span class="n" aria-hidden="true">1</span>a programmer’s personal laptop</li>
+          <li><span class="n" aria-hidden="true">2</span>email that forwards automatically</li>
+          <li><span class="n" aria-hidden="true">3</span>the estimator quoting off the same drawings</li>
+          <li><span class="n" aria-hidden="true">4</span>first article inspection reports (FAIRs) and coordinate measuring machine (CMM) reports going back to the prime</li>
+          <li><span class="n" aria-hidden="true">5</span>a second building</li>
+        </ol>
+      </figure>
       <p class="warning"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.5"></circle><path d="M12 7.5v5.5"></path><path d="M12 16.5v.01"></path></svg><span>Please don’t send us drawings, contracts, or controlled information, by email or through this site. We don’t need them.</span></p>
     </div>
   </section>
