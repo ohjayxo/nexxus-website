@@ -299,7 +299,7 @@ a:hover{ color:var(--blue-dark); text-decoration-thickness:2px; }
   overflow-wrap:anywhere;
 }
 .contact-item a:hover{ color:#fff; text-decoration:underline; }
-.contact-item .email{ font-size:clamp(1.25rem,2.4vw,1.75rem); }
+.contact-item .email{ font-size:clamp(1.25rem,2.4vw,1.75rem); overflow-wrap:normal; }
 .contact-note{ margin-top:28px; color:var(--night-text); font-size:1.0625rem; }
 .contact .warning{ background:transparent; border-color:rgba(255,255,255,.6); color:#fff; }
 .contact :focus-visible{ outline-color:#fff; }
