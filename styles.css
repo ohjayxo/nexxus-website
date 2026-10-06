@@ -1,9 +1,10 @@
 /* Nexxus Advisory, site styles (v2, approved copy) */
 
 :root{
-  --paper:#FFFFFF;
-  --steel:#F1F4F6;
-  --line:#CCD5DC;
+  --page:#F7F5F0;   /* page background: warm paper */
+  --paper:#FFFFFF;  /* cards and sheets sit on the page in white */
+  --steel:#ECE9E2;
+  --line:#D5D0C6;
   --ink:#141B2E;
   --ink-2:#455163;
   --blue:#1F4AA8;
@@ -23,7 +24,7 @@
 html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
 @media (prefers-reduced-motion: no-preference){ html{ scroll-behavior:smooth; } }
 body{
-  margin:0; background:var(--paper); color:var(--ink);
+  margin:0; background:var(--page); color:var(--ink);
   font-family:var(--sans); font-size:1.125rem; line-height:1.6;
   -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
 }
@@ -65,7 +66,7 @@ a:hover{ color:var(--blue-dark); text-decoration-thickness:2px; }
 /* ---------- Header ---------- */
 .site-header{
   position:sticky; top:0; z-index:50;
-  background:rgba(255,255,255,.97); border-bottom:1px solid var(--line);
+  background:rgba(247,245,240,.97); border-bottom:1px solid var(--line);
 }
 .site-header .wrap{ display:flex; align-items:center; gap:20px; min-height:72px; }
 .brand{
@@ -91,7 +92,7 @@ a:hover{ color:var(--blue-dark); text-decoration-thickness:2px; }
   .callbar{
     display:block; position:fixed; left:0; right:0; bottom:0; z-index:60;
     padding:10px 16px calc(10px + env(safe-area-inset-bottom));
-    background:rgba(255,255,255,.97); border-top:1px solid var(--line);
+    background:rgba(247,245,240,.97); border-top:1px solid var(--line);
   }
   .callbar .btn{ width:100%; }
   body{ padding-bottom:80px; }
