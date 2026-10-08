@@ -147,7 +147,7 @@ a:hover{ color:var(--blue-dark); text-decoration-thickness:2px; }
 .page-hero{ padding:clamp(48px,6vw,88px) 0 clamp(44px,5.5vw,80px); }
 .page-hero h1{ font-size:clamp(2.5rem,5.6vw,4.25rem); font-weight:700; line-height:1; letter-spacing:-.02em; max-width:18ch; }
 .hero .eyebrow{ color:var(--blue-light); }
-.page-intro{ margin-top:20px; max-width:38em; font-size:clamp(1.1875rem,1.8vw,1.3125rem); color:var(--night-text); }
+.page-intro{ margin-top:20px; max-width:32em; font-size:clamp(1.1875rem,1.8vw,1.3125rem); color:var(--night-text); }
 .page-hero .date-line{ margin-top:16px; font-family:var(--cond); font-weight:600; font-size:1.125rem; color:#fff; }
 
 /* Route drawing on the grid: how drawings move through a shop (wide screens only).
@@ -641,3 +641,25 @@ circle.leak-halo{ fill:var(--hold-light); }
 
 .handling-top{ margin-top:0; }
 @media print{ .menu{ display:none; } .page-hero h1, .page-intro, .page-hero .date-line{ color:#000; } }
+
+/* Inner pages: one small, still "detail" drawing on the grid (wide screens only).
+   Home keeps the full drawing; these zoom in on one part, like detail views on a drawing. */
+.detail{ display:none; position:absolute; top:24px; right:0; width:432px; height:264px; pointer-events:none; }
+@media (min-width:1240px){ .detail{ display:block; } .page-hero{ min-height:312px; } }
+.trace-arrow{ fill:var(--blue-light); fill-opacity:.7; }
+.trace-hold{ fill:var(--ink); stroke:var(--hold-light); stroke-width:1.5; }
+.note-dim{ fill:#fff; fill-opacity:.85; font-family:var(--cond); font-weight:600; font-size:12px; letter-spacing:.04em; text-anchor:middle; }
+.note-gap{ stroke-dasharray:4 4; }
+.detail-tick{ fill:none; stroke:var(--blue-light); stroke-opacity:.45; stroke-width:1; }
+.detail-dot{ fill:var(--blue-light); }
+.detail-dot-hold{ fill:var(--hold-light); }
+.detail-date{ fill:#fff; fill-opacity:.9; font-family:var(--cond); font-weight:700; font-size:12px; letter-spacing:.08em; }
+.detail-what{ fill:var(--blue-light); fill-opacity:.85; font-family:var(--cond); font-weight:600; font-size:11px; letter-spacing:.1em; }
+.detail-what.detail-hold{ fill:var(--hold-light); }
+.detail-end{ text-anchor:end; }
+.note-text.detail-start{ text-anchor:start; }
+.note-balloon-sm circle{ stroke-width:1; }
+.note-balloon-sm text{ font-size:10px; }
+.detail-bar rect{ fill:var(--blue-light); fill-opacity:.3; }
+.detail-check{ fill:none; stroke:var(--blue-light); stroke-width:1.75; stroke-linecap:round; stroke-linejoin:round; }
+@media print{ .detail{ display:none !important; } }
