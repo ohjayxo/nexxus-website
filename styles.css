@@ -14,6 +14,10 @@
   --ok:#1E6A43;
   --ok-bg:#E2F1E8;
   --night-text:#B9C2CF;
+  --night-line:rgba(255,255,255,.16);
+  --blue-light:#8FB3FF; /* links and accents on the dark bands */
+  --blue-bright:#3B6FE0; /* buttons on the dark bands */
+  --hold-light:#F2B35C;
   --sans:'Barlow', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --cond:'Barlow Semi Condensed', 'Barlow', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --wrap:1160px;
@@ -52,8 +56,8 @@ a:hover{ color:var(--blue-dark); text-decoration-thickness:2px; }
 /* ---------- Buttons ---------- */
 .btn{
   display:inline-flex; align-items:center; justify-content:center; gap:8px;
-  min-height:48px; padding:10px 20px; border:2px solid var(--blue); border-radius:4px;
-  font-family:var(--cond); font-weight:600; font-size:1.1875rem; letter-spacing:.01em;
+  min-height:52px; padding:10px 24px; border:2px solid var(--blue); border-radius:4px;
+  font-family:var(--cond); font-weight:700; font-size:1.125rem; letter-spacing:.05em; text-transform:uppercase;
   text-decoration:none; transition:background-color .15s ease, color .15s ease, border-color .15s ease;
 }
 .btn-primary{ background:var(--blue); color:#fff; }
@@ -82,7 +86,7 @@ a:hover{ color:var(--blue-dark); text-decoration-thickness:2px; }
   color:var(--ink-2); font-weight:500; font-size:1.0625rem; text-decoration:none;
 }
 .site-nav a:hover{ color:var(--ink); background:var(--steel); }
-.header-call{ min-height:44px; padding:8px 16px; font-size:1.0625rem; }
+.header-call{ min-height:44px; padding:8px 16px; font-size:1rem; }
 @media (max-width:1060px){ .site-nav{ display:none; } }
 
 /* Sticky call bar: phones only, replaces the header button there */
@@ -99,30 +103,168 @@ a:hover{ color:var(--blue-dark); text-decoration-thickness:2px; }
 }
 
 /* ---------- Opening ---------- */
-.hero{ padding:clamp(48px,7vw,96px) 0 clamp(56px,7vw,96px); }
-.hero-kicker{
-  max-width:48rem; margin-bottom:18px;
-  font-family:var(--cond); font-weight:600; font-size:clamp(1.0625rem,1.6vw,1.25rem); line-height:1.3;
-  letter-spacing:.01em; color:var(--blue);
+/* Dark band with a faint drafting grid that fades out behind the text */
+.hero{
+  padding:clamp(56px,8vw,112px) 0 0; color:#fff;
+  background-color:var(--ink);
+  background-image:
+    linear-gradient(90deg, var(--ink) 0%, rgba(20,27,46,.88) 40%, rgba(20,27,46,.15) 100%),
+    linear-gradient(rgba(143,179,255,.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(143,179,255,.12) 1px, transparent 1px),
+    linear-gradient(rgba(143,179,255,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(143,179,255,.05) 1px, transparent 1px);
+  background-size:auto, 120px 120px, 120px 120px, 24px 24px, 24px 24px;
+  /* grid anchored to the right edge so the route drawing sits exactly on its lines */
+  background-position:0 0, right 0 top 0, right 0 top 0, right 0 top 0, right 0 top 0;
+  position:relative; overflow:hidden;
 }
+.hero > .wrap{ position:relative; z-index:1; }
+
+/* Route drawing on the grid: how drawings move through a shop (wide screens only).
+   Original linework; it echoes the example-shop map further down. */
+.trace{
+  display:none; position:absolute; top:0; right:0; z-index:2; width:576px; height:744px; pointer-events:none;
+  -webkit-mask-image:linear-gradient(90deg, transparent 0, #000 18%);
+  mask-image:linear-gradient(90deg, transparent 0, #000 18%);
+}
+@media (min-width:1440px){ .trace{ display:block; } }
+/* hover zone over the drawing only (clear of the text), so hovering it replays the trip */
+.trace-hit{ fill:none; pointer-events:all; }
+.trace-shop{ fill:none; stroke:var(--blue-light); stroke-opacity:.35; stroke-width:1; stroke-dasharray:6 6; }
+.trace-caps{ fill:var(--blue-light); fill-opacity:.55; font-family:var(--cond); font-weight:600; font-size:11px; letter-spacing:.14em; }
+.trace-route{ fill:none; stroke:var(--blue-light); stroke-opacity:.45; stroke-width:1.5; stroke-linejoin:round; }
+.trace-pulse{ fill:none; stroke:#fff; stroke-width:2.5; stroke-linecap:round; stroke-dasharray:48 2000; stroke-dashoffset:48; opacity:.9; }
+.trace-grow{ fill:none; stroke:var(--hold-light); stroke-opacity:.6; stroke-width:1.5; stroke-dasharray:5 6; }
+.trace-node rect{ fill:var(--ink); stroke:var(--blue-light); stroke-opacity:.6; stroke-width:1.5; }
+.trace-label text{ fill:var(--blue-light); fill-opacity:.85; font-family:var(--cond); font-weight:600; font-size:12px; letter-spacing:.1em; text-anchor:middle; }
+.trace-via circle{ fill:var(--blue-light); fill-opacity:.7; }
+.trace-exit circle{ fill:var(--hold-light); fill-opacity:.8; }
+/* Nexxus layer: drafting notes that map the route but never touch it */
+.note-line{ fill:none; stroke:#fff; stroke-opacity:.55; stroke-width:1; }
+.note-arrow{ fill:#fff; fill-opacity:.7; }
+.note-balloon circle{ fill:var(--ink); stroke:#fff; stroke-opacity:.75; stroke-width:1.25; }
+.note-balloon text{ fill:#fff; font-family:var(--cond); font-weight:700; font-size:12px; text-anchor:middle; }
+.note-text{ fill:#fff; fill-opacity:.7; font-family:var(--cond); font-weight:600; font-size:11px; letter-spacing:.14em; text-anchor:middle; }
+.note-block{ fill:var(--ink); stroke:#fff; stroke-opacity:.55; stroke-width:1; }
+.note-title{ fill:#fff; fill-opacity:.9; font-family:var(--cond); font-weight:700; font-size:12px; letter-spacing:.12em; text-anchor:middle; }
+/* One trip around the route (5s), starting 3s after the page loads, replayed when the mouse moves onto the drawing
+   into the opening. It never loops on its own (WCAG 2.2.2). Two identical keyframes so that
+   switching names on hover restarts the trip. */
+@keyframes trace-run-a{ from{ stroke-dashoffset:48; } to{ stroke-dashoffset:-1920; } }
+@keyframes trace-run-b{ from{ stroke-dashoffset:48; } to{ stroke-dashoffset:-1920; } }
+.hero{ --trace-delay:3s; } /* after the headline has been read */
+.trace:hover{ --trace-delay:.15s; }
+@media (prefers-reduced-motion: no-preference){
+  .trace-pulse{ animation:trace-run-a 5s linear var(--trace-delay) both; }
+  .trace:hover .trace-pulse{ animation-name:trace-run-b; }
+}
+@media (prefers-reduced-motion: reduce){ .trace-pulse{ display:none; } }
+/* Scope leaks: each amber exit glows once as the light passes the box it leaves from
+   (office 0.79s, CAM PC 1.59s, shop floor 1.95s into the trip). Replays with the trip. */
+.leak-halo{ opacity:0; }
+path.leak-halo{ fill:none; stroke:var(--hold-light); stroke-width:7; stroke-linecap:round; }
+circle.leak-halo{ fill:var(--hold-light); }
+.leak-halo{ will-change:opacity; }
+@keyframes leak-glow-a{ 0%{ opacity:0; } 25%{ opacity:.85; } 100%{ opacity:0; } }
+@keyframes leak-glow-b{ 0%{ opacity:0; } 25%{ opacity:.85; } 100%{ opacity:0; } }
+@media (prefers-reduced-motion: no-preference){
+  .leak-halo{ animation:leak-glow-a 1.6s ease-out both; }
+  .leak-1 .leak-halo{ animation-delay:calc(var(--trace-delay) + .79s); }
+  .leak-2 .leak-halo{ animation-delay:calc(var(--trace-delay) + 1.59s); }
+  .leak-3 .leak-halo{ animation-delay:calc(var(--trace-delay) + 1.95s); }
+  .trace:hover .leak-halo{ animation-name:leak-glow-b; }
+}
+.hero h1, .hero h2, .hero h3{ color:#fff; }
+.hero a:not(.btn){ color:var(--blue-light); }
+.hero a:not(.btn):hover{ color:#fff; }
+.hero :focus-visible{ outline-color:#fff; }
+.hero .btn-primary{ background:var(--blue-bright); border-color:var(--blue-bright); }
+.hero .btn-primary:hover{ background:#fff; border-color:#fff; color:var(--ink); }
+.hero-kicker{
+  max-width:48rem; margin-bottom:20px;
+  font-family:var(--cond); font-weight:600; font-size:clamp(1.0625rem,1.6vw,1.25rem); line-height:1.3;
+  letter-spacing:.01em; color:var(--blue-light);
+}
+.hero .hero-kicker{ color:var(--blue-light); }
 .hero-slogan{
-  font-family:var(--cond); color:var(--ink);
-  font-size:clamp(2.75rem,6.4vw,5rem); font-weight:700;
-  line-height:.98; letter-spacing:-.015em;
+  font-family:var(--cond); color:#fff;
+  font-size:clamp(3rem,7.4vw,6rem); font-weight:700;
+  line-height:.95; letter-spacing:-.02em;
 }
 .hero-slogan span{ display:block; }
-.lede{ margin-top:28px; max-width:36em; font-size:clamp(1.1875rem,1.8vw,1.375rem); line-height:1.5; }
-.lede + .lede{ margin-top:12px; color:var(--ink-2); }
+.hero-slogan span + span{ color:var(--blue-light); }
+.lede{ margin-top:32px; max-width:36em; font-size:clamp(1.1875rem,1.8vw,1.375rem); line-height:1.5; }
+.lede + .lede{ margin-top:12px; color:var(--night-text); }
 .hero-status{
-  margin-top:24px; max-width:40em; padding-top:16px; border-top:2px solid var(--ink);
+  margin-top:28px; max-width:40em; padding-top:16px; border-top:2px solid rgba(255,255,255,.35);
   font-weight:500;
+}
+
+/* At a glance: four facts already stated further down, each a jump link */
+.facts{
+  margin-top:clamp(48px,6vw,72px); display:grid; grid-template-columns:repeat(4,minmax(0,1fr));
+  border-top:1px solid var(--night-line);
+}
+.facts li + li{ border-left:1px solid var(--night-line); }
+.hero .facts a{
+  display:flex; flex-direction:column; gap:12px; height:100%;
+  padding:24px 20px 28px; color:#fff; text-decoration:none;
+  font-family:var(--cond); font-weight:600; font-size:1.1875rem; line-height:1.25;
+}
+.facts li:first-child a{ padding-left:0; }
+.facts svg{ width:28px; height:28px; flex:none; color:var(--blue-light); }
+.hero .facts a:hover span{ text-decoration:underline; text-underline-offset:4px; }
+
+/* Icon moves once on hover (mouse) or keyboard focus. CSS only; off for reduced motion. */
+@keyframes tag-swing{ 0%{ transform:rotate(0); } 25%{ transform:rotate(-16deg); } 55%{ transform:rotate(10deg); } 80%{ transform:rotate(-4deg); } 100%{ transform:rotate(0); } }
+@keyframes pin-drop{ 0%{ transform:translateY(0); } 30%{ transform:translateY(-7px); } 55%{ transform:translateY(0); } 72%{ transform:translateY(-2px); } 100%{ transform:translateY(0); } }
+/* padlock: the left leg stays in the body as the hinge; the right side pops free, then clicks shut */
+@keyframes shackle-lift{ 0%{ transform:rotate(0); } 35%{ transform:rotate(-24deg); } 60%{ transform:rotate(-24deg); } 85%{ transform:rotate(3deg); } 100%{ transform:rotate(0); } }
+.shackle{ transform-box:view-box; transform-origin:8px 10.5px; }
+@keyframes check-draw{ from{ stroke-dashoffset:1; } to{ stroke-dashoffset:0; } }
+.ico-tag{ transform-origin:33% 33%; }
+.ico .check-2{ stroke-dasharray:1; stroke-dashoffset:0; }
+@media (prefers-reduced-motion: no-preference){
+  .facts a:focus-visible .ico-tag{ animation:tag-swing .6s ease-out; }
+  .facts a:focus-visible .ico-pin{ animation:pin-drop .55s ease-out; }
+  .facts a:focus-visible .shackle{ animation:shackle-lift .65s ease-in-out; }
+  .facts a:focus-visible .check-2{ animation:check-draw .35s ease-out .12s both; }
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference){
+  .facts a:hover .ico-tag{ animation:tag-swing .6s ease-out; }
+  .facts a:hover .ico-pin{ animation:pin-drop .55s ease-out; }
+  .facts a:hover .shackle{ animation:shackle-lift .65s ease-in-out; }
+  .facts a:hover .check-2{ animation:check-draw .35s ease-out .12s both; }
+}
+@media (max-width:860px){
+  .facts{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .facts li:nth-child(3){ border-left:0; }
+  .facts li:nth-child(n+3){ border-top:1px solid var(--night-line); }
+  .facts li:nth-child(odd) a{ padding-left:0; }
+  .hero .facts a{ padding:18px 14px 20px; font-size:1.0625rem; gap:10px; }
 }
 
 /* ---------- Sections ---------- */
 .section{ padding:clamp(56px,7vw,100px) 0; }
 .section-alt{ background:var(--steel); }
 .section-head{ max-width:44rem; }
-.section-head h2{ font-size:clamp(2rem,3.8vw,2.875rem); font-weight:600; letter-spacing:-.01em; }
+.section-head h2{ font-size:clamp(2.25rem,4.4vw,3.5rem); font-weight:700; letter-spacing:-.015em; line-height:1.02; }
+.eyebrow{
+  margin-bottom:10px; font-family:var(--cond); font-weight:700; font-size:.9375rem; line-height:1.2;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--blue);
+}
+.section-head .eyebrow{ margin-top:0; font-size:.9375rem; color:var(--blue); }
+
+/* Dark band, used once mid-page for rhythm */
+.section-dark{ background:var(--ink); color:#fff; }
+.section-dark h2, .section-dark h3{ color:#fff; }
+.section-dark .section-head p{ color:var(--night-text); }
+.section-dark .section-head .eyebrow, .contact .eyebrow{ color:var(--blue-light); }
+.section-dark a{ color:var(--blue-light); }
+.section-dark :focus-visible{ outline-color:#fff; }
+.section-dark .limits{ border-top-color:rgba(255,255,255,.6); }
+.section-dark .limits li{ border-bottom-color:var(--night-line); }
+.section-dark .limits svg{ color:var(--hold-light); }
 .section-head p{ margin-top:16px; font-size:1.1875rem; color:var(--ink-2); }
 .section-head .date-line{ margin-top:10px; font-family:var(--cond); font-weight:600; font-size:1.125rem; color:var(--ink); }
 
@@ -400,11 +542,26 @@ a:hover{ color:var(--blue-dark); text-decoration-thickness:2px; }
 .moves li::before{ content:""; position:absolute; left:0; top:1.1em; width:10px; height:2px; background:var(--blue); }
 @media (max-width:760px){ .moves-cols{ grid-template-columns:minmax(0,1fr); } }
 
+/* What you're paying for: four short points, two columns on wide screens */
+.paying{ margin-top:36px; }
+.paying h3{ font-size:1.5rem; font-weight:600; }
+.paying-list{
+  margin-top:14px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 48px;
+  border-top:2px solid var(--ink);
+}
+.paying-list li{ padding:14px 0; border-bottom:1px solid var(--line); font-size:1.0625rem; }
+.paying-list strong{ display:block; font-family:var(--cond); font-weight:600; font-size:1.1875rem; color:var(--ink); }
+@media (max-width:760px){ .paying-list{ grid-template-columns:minmax(0,1fr); } }
+
 @media print{
   .site-header, .skip-link, .actions, .callbar{ display:none; }
   body{ padding-bottom:0; }
   .section, .contact{ padding:24px 0; }
-  .section-alt, .contact{ background:none; }
+  .section-alt, .contact, .hero, .section-dark{ background:none; }
+  .hero, .hero h1, .hero-slogan, .hero-slogan span + span, .hero a:not(.btn), .lede + .lede, .facts, .hero .facts a, .facts svg,
+  .section-dark, .section-dark h2, .section-dark .section-head p, .section-dark .limits svg, .eyebrow{ color:#000; }
+  .hero{ padding-bottom:24px; }
+  .trace{ display:none !important; }
   .contact, .contact h2, .contact-item a, .contact .warning{ color:#000; }
   .contact-sub, .contact-key, .contact-note{ color:#333; }
 }
