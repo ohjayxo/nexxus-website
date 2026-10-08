@@ -4,3 +4,10 @@
 [build]
   publish = "."
   command = "echo 'Static site: no build step'"
+
+# _tools/ holds maintenance scripts for the repo, not pages. Don't serve it.
+[[redirects]]
+  from = "/_tools/*"
+  to = "/404.html"
+  status = 404
+  force = true
