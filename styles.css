@@ -144,8 +144,7 @@ a:hover{ color:var(--blue-dark); text-decoration-thickness:2px; }
 .note-balloon text{ fill:#fff; font-family:var(--cond); font-weight:700; font-size:12px; text-anchor:middle; }
 .note-text{ fill:#fff; fill-opacity:.7; font-family:var(--cond); font-weight:600; font-size:11px; letter-spacing:.14em; text-anchor:middle; }
 .note-block{ fill:var(--ink); stroke:#fff; stroke-opacity:.55; stroke-width:1; }
-.note-small{ fill:#fff; fill-opacity:.55; font-family:var(--cond); font-weight:600; font-size:9.5px; letter-spacing:.12em; }
-.note-title{ fill:#fff; fill-opacity:.9; font-family:var(--cond); font-weight:700; font-size:12px; letter-spacing:.12em; }
+.note-title{ fill:#fff; fill-opacity:.9; font-family:var(--cond); font-weight:700; font-size:12px; letter-spacing:.12em; text-anchor:middle; }
 @keyframes trace-run{ to{ stroke-dashoffset:0; } }
 @media (prefers-reduced-motion: no-preference){
   .trace-pulse{ animation:trace-run 16s linear infinite; }
