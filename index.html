@@ -172,9 +172,28 @@
 
   <section class="hero" id="top" aria-labelledby="hero-title">
     <svg class="trace" viewBox="0 0 576 744" aria-hidden="true" focusable="false">
+      <defs>
+        <filter id="leak-soft" filterUnits="userSpaceOnUse" x="0" y="0" width="576" height="744"><feGaussianBlur stdDeviation="3"></feGaussianBlur></filter>
+      </defs>
       <rect class="trace-shop" x="168" y="168" width="360" height="456" rx="4"></rect>
       <text class="trace-caps" x="180" y="190">YOUR SHOP</text>
-      <path class="trace-grow" d="M312 240H576M480 384H576M480 528H576M288 216V144M432 552V576H576"></path>
+      <g class="leak leak-1">
+        <path class="leak-halo" filter="url(#leak-soft)" d="M312 240H576M288 216V144"></path>
+        <circle class="leak-halo" filter="url(#leak-soft)" cx="528" cy="240" r="8"></circle>
+        <circle class="leak-halo" filter="url(#leak-soft)" cx="288" cy="168" r="8"></circle>
+        <path class="trace-grow" d="M312 240H576M288 216V144"></path>
+      </g>
+      <g class="leak leak-2">
+        <path class="leak-halo" filter="url(#leak-soft)" d="M480 384H576"></path>
+        <circle class="leak-halo" filter="url(#leak-soft)" cx="528" cy="384" r="8"></circle>
+        <path class="trace-grow" d="M480 384H576"></path>
+      </g>
+      <g class="leak leak-3">
+        <path class="leak-halo" filter="url(#leak-soft)" d="M480 528H576M432 552V576H576"></path>
+        <circle class="leak-halo" filter="url(#leak-soft)" cx="528" cy="528" r="8"></circle>
+        <circle class="leak-halo" filter="url(#leak-soft)" cx="528" cy="576" r="8"></circle>
+        <path class="trace-grow" d="M480 528H576M432 552V576H576"></path>
+      </g>
       <path class="trace-route" d="M408 96H264V384H432V528H120V24H408V96"></path>
       <path class="trace-pulse" d="M408 96H264V384H432V528H120V24H408V96"></path>
       <g class="trace-node">

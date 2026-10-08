@@ -131,7 +131,7 @@ a:hover{ color:var(--blue-dark); text-decoration-thickness:2px; }
 .trace-shop{ fill:none; stroke:var(--blue-light); stroke-opacity:.35; stroke-width:1; stroke-dasharray:6 6; }
 .trace-caps{ fill:var(--blue-light); fill-opacity:.55; font-family:var(--cond); font-weight:600; font-size:11px; letter-spacing:.14em; }
 .trace-route{ fill:none; stroke:var(--blue-light); stroke-opacity:.45; stroke-width:1.5; stroke-linejoin:round; }
-.trace-pulse{ fill:none; stroke:#fff; stroke-width:2.5; stroke-linecap:round; stroke-dasharray:40 920; stroke-dashoffset:1920; opacity:.85; }
+.trace-pulse{ fill:none; stroke:#fff; stroke-width:2.5; stroke-linecap:round; stroke-dasharray:48 2000; stroke-dashoffset:48; opacity:.9; }
 .trace-grow{ fill:none; stroke:var(--hold-light); stroke-opacity:.6; stroke-width:1.5; stroke-dasharray:5 6; }
 .trace-node rect{ fill:var(--ink); stroke:var(--blue-light); stroke-opacity:.6; stroke-width:1.5; }
 .trace-label text{ fill:var(--blue-light); fill-opacity:.85; font-family:var(--cond); font-weight:600; font-size:12px; letter-spacing:.1em; text-anchor:middle; }
@@ -145,11 +145,33 @@ a:hover{ color:var(--blue-dark); text-decoration-thickness:2px; }
 .note-text{ fill:#fff; fill-opacity:.7; font-family:var(--cond); font-weight:600; font-size:11px; letter-spacing:.14em; text-anchor:middle; }
 .note-block{ fill:var(--ink); stroke:#fff; stroke-opacity:.55; stroke-width:1; }
 .note-title{ fill:#fff; fill-opacity:.9; font-family:var(--cond); font-weight:700; font-size:12px; letter-spacing:.12em; text-anchor:middle; }
-@keyframes trace-run{ to{ stroke-dashoffset:0; } }
+/* One trip around the route (5s) when the page loads, replayed when the mouse comes back
+   into the opening. It never loops on its own (WCAG 2.2.2). Two identical keyframes so that
+   switching names on hover restarts the trip. */
+@keyframes trace-run-a{ from{ stroke-dashoffset:48; } to{ stroke-dashoffset:-1920; } }
+@keyframes trace-run-b{ from{ stroke-dashoffset:48; } to{ stroke-dashoffset:-1920; } }
+.hero{ --trace-delay:.6s; }
+.hero:hover{ --trace-delay:.15s; }
 @media (prefers-reduced-motion: no-preference){
-  .trace-pulse{ animation:trace-run 16s linear infinite; }
+  .trace-pulse{ animation:trace-run-a 5s linear var(--trace-delay) both; }
+  .hero:hover .trace-pulse{ animation-name:trace-run-b; }
 }
 @media (prefers-reduced-motion: reduce){ .trace-pulse{ display:none; } }
+/* Scope leaks: each amber exit glows once as the light passes the box it leaves from
+   (office 0.79s, CAM PC 1.59s, shop floor 1.95s into the trip). Replays with the trip. */
+.leak-halo{ opacity:0; }
+path.leak-halo{ fill:none; stroke:var(--hold-light); stroke-width:7; stroke-linecap:round; }
+circle.leak-halo{ fill:var(--hold-light); }
+.leak-halo{ will-change:opacity; }
+@keyframes leak-glow-a{ 0%{ opacity:0; } 25%{ opacity:.85; } 100%{ opacity:0; } }
+@keyframes leak-glow-b{ 0%{ opacity:0; } 25%{ opacity:.85; } 100%{ opacity:0; } }
+@media (prefers-reduced-motion: no-preference){
+  .leak-halo{ animation:leak-glow-a 1.6s ease-out both; }
+  .leak-1 .leak-halo{ animation-delay:calc(var(--trace-delay) + .79s); }
+  .leak-2 .leak-halo{ animation-delay:calc(var(--trace-delay) + 1.59s); }
+  .leak-3 .leak-halo{ animation-delay:calc(var(--trace-delay) + 1.95s); }
+  .hero:hover .leak-halo{ animation-name:leak-glow-b; }
+}
 .hero h1, .hero h2, .hero h3{ color:#fff; }
 .hero a:not(.btn){ color:var(--blue-light); }
 .hero a:not(.btn):hover{ color:#fff; }
