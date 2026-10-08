@@ -123,11 +123,13 @@ a:hover{ color:var(--blue-dark); text-decoration-thickness:2px; }
 /* Route drawing on the grid: how drawings move through a shop (wide screens only).
    Original linework; it echoes the example-shop map further down. */
 .trace{
-  display:none; position:absolute; top:0; right:0; width:576px; height:744px; pointer-events:none;
+  display:none; position:absolute; top:0; right:0; z-index:2; width:576px; height:744px; pointer-events:none;
   -webkit-mask-image:linear-gradient(90deg, transparent 0, #000 18%);
   mask-image:linear-gradient(90deg, transparent 0, #000 18%);
 }
 @media (min-width:1440px){ .trace{ display:block; } }
+/* hover zone over the drawing only (clear of the text), so hovering it replays the trip */
+.trace-hit{ fill:none; pointer-events:all; }
 .trace-shop{ fill:none; stroke:var(--blue-light); stroke-opacity:.35; stroke-width:1; stroke-dasharray:6 6; }
 .trace-caps{ fill:var(--blue-light); fill-opacity:.55; font-family:var(--cond); font-weight:600; font-size:11px; letter-spacing:.14em; }
 .trace-route{ fill:none; stroke:var(--blue-light); stroke-opacity:.45; stroke-width:1.5; stroke-linejoin:round; }
@@ -137,18 +139,41 @@ a:hover{ color:var(--blue-dark); text-decoration-thickness:2px; }
 .trace-label text{ fill:var(--blue-light); fill-opacity:.85; font-family:var(--cond); font-weight:600; font-size:12px; letter-spacing:.1em; text-anchor:middle; }
 .trace-via circle{ fill:var(--blue-light); fill-opacity:.7; }
 .trace-exit circle{ fill:var(--hold-light); fill-opacity:.8; }
-/* One trip around the route (5s) when the page loads, replayed when the mouse comes back
+/* Nexxus layer: drafting notes that map the route but never touch it */
+.note-line{ fill:none; stroke:#fff; stroke-opacity:.55; stroke-width:1; }
+.note-arrow{ fill:#fff; fill-opacity:.7; }
+.note-balloon circle{ fill:var(--ink); stroke:#fff; stroke-opacity:.75; stroke-width:1.25; }
+.note-balloon text{ fill:#fff; font-family:var(--cond); font-weight:700; font-size:12px; text-anchor:middle; }
+.note-text{ fill:#fff; fill-opacity:.7; font-family:var(--cond); font-weight:600; font-size:11px; letter-spacing:.14em; text-anchor:middle; }
+.note-block{ fill:var(--ink); stroke:#fff; stroke-opacity:.55; stroke-width:1; }
+.note-title{ fill:#fff; fill-opacity:.9; font-family:var(--cond); font-weight:700; font-size:12px; letter-spacing:.12em; text-anchor:middle; }
+/* One trip around the route (5s), starting 3s after the page loads, replayed when the mouse moves onto the drawing
    into the opening. It never loops on its own (WCAG 2.2.2). Two identical keyframes so that
    switching names on hover restarts the trip. */
 @keyframes trace-run-a{ from{ stroke-dashoffset:48; } to{ stroke-dashoffset:-1920; } }
 @keyframes trace-run-b{ from{ stroke-dashoffset:48; } to{ stroke-dashoffset:-1920; } }
-.hero{ --trace-delay:.6s; }
-.hero:hover{ --trace-delay:.15s; }
+.hero{ --trace-delay:3s; } /* after the headline has been read */
+.trace:hover{ --trace-delay:.15s; }
 @media (prefers-reduced-motion: no-preference){
   .trace-pulse{ animation:trace-run-a 5s linear var(--trace-delay) both; }
-  .hero:hover .trace-pulse{ animation-name:trace-run-b; }
+  .trace:hover .trace-pulse{ animation-name:trace-run-b; }
 }
 @media (prefers-reduced-motion: reduce){ .trace-pulse{ display:none; } }
+/* Scope leaks: each amber exit glows once as the light passes the box it leaves from
+   (office 0.79s, CAM PC 1.59s, shop floor 1.95s into the trip). Replays with the trip. */
+.leak-halo{ opacity:0; }
+path.leak-halo{ fill:none; stroke:var(--hold-light); stroke-width:7; stroke-linecap:round; }
+circle.leak-halo{ fill:var(--hold-light); }
+.leak-halo{ will-change:opacity; }
+@keyframes leak-glow-a{ 0%{ opacity:0; } 25%{ opacity:.85; } 100%{ opacity:0; } }
+@keyframes leak-glow-b{ 0%{ opacity:0; } 25%{ opacity:.85; } 100%{ opacity:0; } }
+@media (prefers-reduced-motion: no-preference){
+  .leak-halo{ animation:leak-glow-a 1.6s ease-out both; }
+  .leak-1 .leak-halo{ animation-delay:calc(var(--trace-delay) + .79s); }
+  .leak-2 .leak-halo{ animation-delay:calc(var(--trace-delay) + 1.59s); }
+  .leak-3 .leak-halo{ animation-delay:calc(var(--trace-delay) + 1.95s); }
+  .trace:hover .leak-halo{ animation-name:leak-glow-b; }
+}
 .hero h1, .hero h2, .hero h3{ color:#fff; }
 .hero a:not(.btn){ color:var(--blue-light); }
 .hero a:not(.btn):hover{ color:#fff; }
@@ -189,6 +214,28 @@ a:hover{ color:var(--blue-dark); text-decoration-thickness:2px; }
 .facts li:first-child a{ padding-left:0; }
 .facts svg{ width:28px; height:28px; flex:none; color:var(--blue-light); }
 .hero .facts a:hover span{ text-decoration:underline; text-underline-offset:4px; }
+
+/* Icon moves once on hover (mouse) or keyboard focus. CSS only; off for reduced motion. */
+@keyframes tag-swing{ 0%{ transform:rotate(0); } 25%{ transform:rotate(-16deg); } 55%{ transform:rotate(10deg); } 80%{ transform:rotate(-4deg); } 100%{ transform:rotate(0); } }
+@keyframes pin-drop{ 0%{ transform:translateY(0); } 30%{ transform:translateY(-7px); } 55%{ transform:translateY(0); } 72%{ transform:translateY(-2px); } 100%{ transform:translateY(0); } }
+/* padlock: the left leg stays in the body as the hinge; the right side pops free, then clicks shut */
+@keyframes shackle-lift{ 0%{ transform:rotate(0); } 35%{ transform:rotate(-24deg); } 60%{ transform:rotate(-24deg); } 85%{ transform:rotate(3deg); } 100%{ transform:rotate(0); } }
+.shackle{ transform-box:view-box; transform-origin:8px 10.5px; }
+@keyframes check-draw{ from{ stroke-dashoffset:1; } to{ stroke-dashoffset:0; } }
+.ico-tag{ transform-origin:33% 33%; }
+.ico .check-2{ stroke-dasharray:1; stroke-dashoffset:0; }
+@media (prefers-reduced-motion: no-preference){
+  .facts a:focus-visible .ico-tag{ animation:tag-swing .6s ease-out; }
+  .facts a:focus-visible .ico-pin{ animation:pin-drop .55s ease-out; }
+  .facts a:focus-visible .shackle{ animation:shackle-lift .65s ease-in-out; }
+  .facts a:focus-visible .check-2{ animation:check-draw .35s ease-out .12s both; }
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference){
+  .facts a:hover .ico-tag{ animation:tag-swing .6s ease-out; }
+  .facts a:hover .ico-pin{ animation:pin-drop .55s ease-out; }
+  .facts a:hover .shackle{ animation:shackle-lift .65s ease-in-out; }
+  .facts a:hover .check-2{ animation:check-draw .35s ease-out .12s both; }
+}
 @media (max-width:860px){
   .facts{ grid-template-columns:repeat(2,minmax(0,1fr)); }
   .facts li:nth-child(3){ border-left:0; }
