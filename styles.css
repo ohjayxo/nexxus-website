@@ -114,8 +114,41 @@ a:hover{ color:var(--blue-dark); text-decoration-thickness:2px; }
     linear-gradient(rgba(143,179,255,.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(143,179,255,.05) 1px, transparent 1px);
   background-size:auto, 120px 120px, 120px 120px, 24px 24px, 24px 24px;
-  background-position:0 0, -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+  /* grid anchored to the right edge so the route drawing sits exactly on its lines */
+  background-position:0 0, right 0 top 0, right 0 top 0, right 0 top 0, right 0 top 0;
+  position:relative; overflow:hidden;
 }
+.hero > .wrap{ position:relative; z-index:1; }
+
+/* Route drawing on the grid: how drawings move through a shop (wide screens only).
+   Original linework; it echoes the example-shop map further down. */
+.trace{
+  display:none; position:absolute; top:0; right:0; width:576px; height:744px; pointer-events:none;
+  -webkit-mask-image:linear-gradient(90deg, transparent 0, #000 18%);
+  mask-image:linear-gradient(90deg, transparent 0, #000 18%);
+}
+@media (min-width:1440px){ .trace{ display:block; } }
+.trace-shop{ fill:none; stroke:var(--blue-light); stroke-opacity:.35; stroke-width:1; stroke-dasharray:6 6; }
+.trace-caps{ fill:var(--blue-light); fill-opacity:.55; font-family:var(--cond); font-weight:600; font-size:11px; letter-spacing:.14em; }
+.trace-route{ fill:none; stroke:var(--blue-light); stroke-opacity:.45; stroke-width:1.5; stroke-linejoin:round; }
+.trace-pulse{ fill:none; stroke:#fff; stroke-width:2.5; stroke-linecap:round; stroke-dasharray:48 2000; stroke-dashoffset:48; opacity:.9; }
+.trace-grow{ fill:none; stroke:var(--hold-light); stroke-opacity:.6; stroke-width:1.5; stroke-dasharray:5 6; }
+.trace-node rect{ fill:var(--ink); stroke:var(--blue-light); stroke-opacity:.6; stroke-width:1.5; }
+.trace-label text{ fill:var(--blue-light); fill-opacity:.85; font-family:var(--cond); font-weight:600; font-size:12px; letter-spacing:.1em; text-anchor:middle; }
+.trace-via circle{ fill:var(--blue-light); fill-opacity:.7; }
+.trace-exit circle{ fill:var(--hold-light); fill-opacity:.8; }
+/* One trip around the route (5s) when the page loads, replayed when the mouse comes back
+   into the opening. It never loops on its own (WCAG 2.2.2). Two identical keyframes so that
+   switching names on hover restarts the trip. */
+@keyframes trace-run-a{ from{ stroke-dashoffset:48; } to{ stroke-dashoffset:-1920; } }
+@keyframes trace-run-b{ from{ stroke-dashoffset:48; } to{ stroke-dashoffset:-1920; } }
+.hero{ --trace-delay:.6s; }
+.hero:hover{ --trace-delay:.15s; }
+@media (prefers-reduced-motion: no-preference){
+  .trace-pulse{ animation:trace-run-a 5s linear var(--trace-delay) both; }
+  .hero:hover .trace-pulse{ animation-name:trace-run-b; }
+}
+@media (prefers-reduced-motion: reduce){ .trace-pulse{ display:none; } }
 .hero h1, .hero h2, .hero h3{ color:#fff; }
 .hero a:not(.btn){ color:var(--blue-light); }
 .hero a:not(.btn):hover{ color:#fff; }
@@ -468,6 +501,7 @@ a:hover{ color:var(--blue-dark); text-decoration-thickness:2px; }
   .hero, .hero h1, .hero-slogan, .hero-slogan span + span, .hero a:not(.btn), .lede + .lede, .facts, .hero .facts a, .facts svg,
   .section-dark, .section-dark h2, .section-dark .section-head p, .section-dark .limits svg, .eyebrow{ color:#000; }
   .hero{ padding-bottom:24px; }
+  .trace{ display:none !important; }
   .contact, .contact h2, .contact-item a, .contact .warning{ color:#000; }
   .contact-sub, .contact-key, .contact-note{ color:#333; }
 }
