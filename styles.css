@@ -427,12 +427,26 @@ circle.leak-halo{ fill:var(--hold-light); }
 .faq-answer{ max-width:42rem; padding:0 0 24px; }
 
 /* Terms on this page */
-.glossary{ margin-top:36px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:48px; border-top:2px solid var(--ink); }
-.glossary > div{ padding:16px 0; border-bottom:1px solid var(--line); }
-.glossary dt{ font-family:var(--cond); font-weight:600; font-size:1.1875rem; }
-.glossary dt span{ font-family:var(--sans); font-weight:500; font-size:1.0625rem; color:var(--ink-2); }
-.glossary dd{ margin-top:4px; font-size:1.0625rem; }
-.glossary dd a{ font-size:.9375rem; white-space:nowrap; }
+/* Each term opens on tap, like the questions above (native details, no scripts) */
+.glossary{ margin-top:36px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:48px; align-items:start; border-top:2px solid var(--ink); }
+.glossary details{ border-bottom:1px solid var(--line); }
+.glossary summary{
+  display:flex; justify-content:space-between; align-items:center; gap:16px;
+  min-height:44px; padding:14px 0; cursor:pointer; list-style:none;
+}
+.glossary summary::-webkit-details-marker{ display:none; }
+.glossary summary::after{
+  content:""; flex:none; width:14px; height:14px;
+  background:
+    linear-gradient(var(--ink),var(--ink)) center / 14px 2px no-repeat,
+    linear-gradient(var(--ink),var(--ink)) center / 2px 14px no-repeat;
+}
+.glossary details[open] > summary::after{ background-size:14px 2px, 2px 0; }
+.glossary summary:hover .g-term{ color:var(--blue-dark); }
+.g-term{ font-family:var(--cond); font-weight:600; font-size:1.1875rem; }
+.g-full{ font-family:var(--sans); font-weight:500; font-size:1.0625rem; color:var(--ink-2); }
+.glossary details > p{ padding:0 0 16px; font-size:1.0625rem; }
+.glossary details > p a{ font-size:.9375rem; white-space:nowrap; }
 @media (max-width:760px){ .glossary{ grid-template-columns:minmax(0,1fr); } }
 
 /* Contact */
@@ -493,7 +507,7 @@ circle.leak-halo{ fill:var(--hold-light); }
 .dg .badge-t{ fill:#fff; font-family:var(--cond); font-weight:700; font-size:14px; }
 .dg .us{ fill:#E8EEF8; stroke:var(--blue); stroke-width:1.5; }
 .dg .us-line{ fill:none; stroke:var(--blue); stroke-width:1.5; stroke-dasharray:2 4; }
-.legend{ margin-top:18px; display:grid; grid-template-columns:repeat(auto-fit,minmax(20rem,1fr)); gap:6px 24px; padding:0; list-style:none; font-size:1rem; }
+.legend{ margin-top:18px; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(20rem,100%),1fr)); gap:6px 24px; padding:0; list-style:none; font-size:1rem; }
 .legend li{ display:flex; gap:10px; align-items:baseline; }
 .legend .n{ flex:none; display:inline-grid; place-items:center; width:22px; height:22px; border-radius:50%; background:var(--hold); color:#fff; font-family:var(--cond); font-weight:700; font-size:.875rem; }
 
@@ -510,7 +524,6 @@ circle.leak-halo{ fill:var(--hold-light); }
 .hand{ display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; padding:0 8px; text-align:center; font-size:.875rem; color:var(--ink-2); line-height:1.3; }
 .hand svg{ width:56px; height:16px; color:var(--blue); }
 .hand-left svg{ transform:scaleX(-1); }
-.roles-foot{ margin-top:16px; color:var(--ink-2); font-size:1rem; }
 @media (max-width:860px){
   .roles{ grid-template-columns:minmax(0,1fr); }
   .hand{ flex-direction:row; padding:10px 0; }
@@ -567,8 +580,8 @@ circle.leak-halo{ fill:var(--hold-light); }
   .hero-status{ animation-delay:.2s; }
   .hero .actions{ animation-delay:.26s; }
   /* Questions: the + folds into a minus, and the answer fades in */
-  .faq summary::after{ transition:background-size .2s ease; }
-  .faq details[open] > .faq-answer{ animation:reveal .22s ease both; }
+  .faq summary::after, .glossary summary::after{ transition:background-size .2s ease; }
+  .faq details[open] > .faq-answer, .glossary details[open] > p{ animation:reveal .22s ease both; }
 }
 @media (hover: hover) and (prefers-reduced-motion: no-preference){
   /* Lift on hover, mouse only (not on phones) */
