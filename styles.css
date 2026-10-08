@@ -449,6 +449,17 @@ a:hover{ color:var(--blue-dark); text-decoration-thickness:2px; }
 .moves li::before{ content:""; position:absolute; left:0; top:1.1em; width:10px; height:2px; background:var(--blue); }
 @media (max-width:760px){ .moves-cols{ grid-template-columns:minmax(0,1fr); } }
 
+/* What you're paying for: four short points, two columns on wide screens */
+.paying{ margin-top:36px; }
+.paying h3{ font-size:1.5rem; font-weight:600; }
+.paying-list{
+  margin-top:14px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 48px;
+  border-top:2px solid var(--ink);
+}
+.paying-list li{ padding:14px 0; border-bottom:1px solid var(--line); font-size:1.0625rem; }
+.paying-list strong{ display:block; font-family:var(--cond); font-weight:600; font-size:1.1875rem; color:var(--ink); }
+@media (max-width:760px){ .paying-list{ grid-template-columns:minmax(0,1fr); } }
+
 @media print{
   .site-header, .skip-link, .actions, .callbar{ display:none; }
   body{ padding-bottom:0; }
