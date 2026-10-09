@@ -382,6 +382,8 @@ circle.leak-halo{ fill:var(--hold-light); }
 .service-terms{ margin-top:auto; padding-top:24px; display:grid; grid-template-columns:4.5rem minmax(0,1fr); gap:8px 12px; }
 .service-terms dt{ font-family:var(--cond); font-weight:600; font-size:1.0625rem; color:var(--ink-2); }
 .service-terms dd{ font-size:1.0625rem; }
+.service-sample{ margin-top:16px; font-family:var(--cond); font-weight:600; font-size:1.125rem; }
+.service-sample a::after{ content:" \2192"; }
 .terms-note{ margin-top:28px; max-width:46rem; font-weight:500; }
 @media (max-width:860px){ .services{ grid-template-columns:minmax(0,1fr); } }
 
@@ -760,7 +762,6 @@ circle.leak-halo{ fill:var(--hold-light); }
 .parts .tab-letter{ display:inline-grid; place-items:center; width:30px; height:30px; border:1.6px solid var(--blue); border-radius:50%; color:var(--blue); font-family:var(--cond); font-weight:700; }
 .parts .no{ color:var(--ink-2); }
 .parts-note{ margin-top:16px; font-size:1.0625rem; color:var(--ink-2); }
-.more-link + .more-link{ margin-top:12px; }
 @media (max-width:900px){ .binder-layout{ grid-template-columns:1fr; gap:32px; } }
 @media (max-width:520px){ .parts th, .parts td{ padding:10px 8px; font-size:1rem; } .parts .tab-letter{ width:26px; height:26px; } }
 @media print{ .ssp::after{ color:rgba(0,0,0,.08); } .ssp-note::before, .ssp-note::after{ display:none; } }
