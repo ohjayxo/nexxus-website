@@ -7,12 +7,12 @@ Run from the repository root before opening a pull request:
 
 It prints any page whose shared parts differ from the home page, and exits 1 if
 any do. The only expected difference is which menu link is marked as the
-current page.
+current page. A page that isn't in the menu (Sample documents) marks nothing.
 """
 import re, sys, pathlib
 
 PAGES = ["index.html", "services/index.html", "your-information/index.html",
-         "cmmc-status/index.html", "questions/index.html"]
+         "cmmc-status/index.html", "questions/index.html", "sample-documents/index.html"]
 PARTS = {
     "header": (r'<header class="site-header">', r"</header>"),
     "contact band": (r'<section class="contact" id="contact"', r"</section>"),
@@ -39,7 +39,9 @@ for page in PAGES:
             print(f"{page}: {name} differs from index.html"); bad += 1
     current = re.findall(r'href="([^"]+)" aria-current="page"', html)
     want = "/" + page.replace("index.html", "")
-    if want != "/" and set(current) != {want}:
-        print(f"{page}: menu marks {current or 'nothing'} as current, expected {want}"); bad += 1
+    in_menu = f'href="{want}"' in (part(html, *PARTS["header"]) or "")
+    expected = {want} if (want != "/" and in_menu) else set()
+    if want != "/" and set(current) != expected:
+        print(f"{page}: menu marks {current or 'nothing'} as current, expected {sorted(expected) or 'nothing'}"); bad += 1
 print("OK: shared parts match on all pages" if not bad else f"{bad} problem(s)")
 sys.exit(1 if bad else 0)

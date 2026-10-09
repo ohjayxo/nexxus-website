@@ -664,3 +664,103 @@ circle.leak-halo{ fill:var(--hold-light); }
 .detail-bar rect{ fill:var(--blue-light); fill-opacity:.3; }
 .detail-check{ fill:none; stroke:var(--blue-light); stroke-width:1.75; stroke-linecap:round; stroke-linejoin:round; }
 @media print{ .detail{ display:none !important; } }
+
+/* ---------- Sample documents ---------- */
+/* Marked-up SSP excerpt: the sheet of paper on the left, Nexxus's drafting notes in the margin on the right.
+   Each note's leader runs to the edge of the sheet beside the part it explains. On narrow screens the notes
+   move inside the sheet, above their part. */
+.ssp{ --note-w:15rem; --note-gap:56px; position:relative; margin-top:40px; overflow:hidden; }
+.ssp-part{ display:grid; grid-template-columns:minmax(0,1fr) var(--note-w); column-gap:var(--note-gap); }
+.ssp-body{ grid-column:1; grid-row:1; background:var(--paper); border-left:2px solid var(--ink); border-right:2px solid var(--ink); padding:0 clamp(20px,4vw,48px) 28px; }
+.ssp-part:first-child .ssp-body{ border-top:2px solid var(--ink); }
+.ssp-part:last-child .ssp-body{ border-bottom:2px solid var(--ink); }
+.ssp-part > .ssp-note, .ssp-notes{ grid-column:2; grid-row:1; align-self:start; }
+.ssp-notes{ display:grid; gap:24px; }
+.ssp-note{ position:relative; margin-top:28px; color:var(--blue); font-size:1rem; line-height:1.45; }
+.ssp-notes .ssp-note{ margin-top:0; }
+.ssp-notes .ssp-note:first-child{ margin-top:24px; }
+.ssp-note-t{ font-family:var(--cond); font-weight:700; font-size:.9375rem; letter-spacing:.12em; text-transform:uppercase; }
+.ssp-note::before{ content:""; position:absolute; top:.65em; right:calc(100% + 8px); width:calc(var(--note-gap) - 8px); border-top:1px solid var(--blue); }
+.ssp-note::after{ content:""; position:absolute; top:calc(.65em - 3px); right:calc(100% + var(--note-gap) - 2.5px); width:7px; height:7px; border-radius:50%; background:var(--blue); }
+.ssp-head, .ssp-foot{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:4px 16px; padding-top:16px; padding-bottom:16px; font-family:var(--cond); font-weight:600; font-size:.875rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-2); }
+.ssp-head{ border-bottom:2px solid var(--ink); }
+.ssp-foot{ border-top:1px solid var(--line); }
+.ssp-family{ padding-top:28px; font-family:var(--cond); font-weight:700; font-size:.9375rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-2); }
+.ssp-next .ssp-family{ margin-top:4px; border-top:1px solid var(--line); }
+.req{ margin-top:12px; display:grid; grid-template-columns:auto minmax(0,1fr); column-gap:16px; }
+.req-id{ grid-row:1 / span 2; font-family:var(--cond); font-weight:700; font-size:1.375rem; line-height:1.2; }
+.req-text{ font-weight:700; font-size:1.1875rem; line-height:1.4; }
+.req-meta{ margin-top:8px; display:flex; flex-wrap:wrap; align-items:center; gap:8px 12px; font-size:.9375rem; color:var(--ink-2); }
+.req-status{ padding:2px 10px; border:1.5px solid var(--ok); border-radius:3px; background:var(--ok-bg); color:var(--ok); font-family:var(--cond); font-weight:700; font-size:.8125rem; letter-spacing:.1em; text-transform:uppercase; }
+.ssp-label{ padding-top:24px; font-family:var(--cond); font-weight:700; font-size:1.0625rem; }
+.ssp-text{ margin-top:8px; }
+.ssp-table{ width:100%; margin-top:10px; border-collapse:collapse; font-size:1rem; }
+.ssp-table th{ padding:8px 0; border-bottom:2px solid var(--ink); text-align:left; font-family:var(--cond); font-weight:600; font-size:.875rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-2); }
+.ssp-table td{ padding:10px 0; border-bottom:1px solid var(--line); vertical-align:top; line-height:1.45; }
+.ssp-table th:last-child, .ssp-table td:last-child{ width:9.5rem; padding-left:20px; }
+.ssp-table td:last-child{ font-family:var(--cond); font-weight:600; }
+.ssp-proof{ margin-top:10px; padding:0; list-style:none; display:grid; gap:8px; }
+.ssp-proof li{ display:flex; align-items:baseline; gap:12px; }
+.ssp-proof .ref{ flex:none; min-width:2.75rem; padding:1px 6px; border:1.5px solid var(--ink); border-radius:3px; text-align:center; font-family:var(--cond); font-weight:700; font-size:.875rem; }
+/* the diagonal SAMPLE mark across the sheet */
+.ssp::after{
+  content:"SAMPLE"; position:absolute; z-index:1; top:50%; left:calc((100% - var(--note-w) - var(--note-gap)) / 2);
+  transform:translate(-50%,-50%) rotate(-24deg); pointer-events:none; white-space:nowrap;
+  font-family:var(--cond); font-weight:700; font-size:clamp(4.5rem,11vw,9rem); letter-spacing:.12em; color:rgba(29,28,26,.07);
+}
+@media (max-width:1000px){
+  .ssp{ --note-w:0px; --note-gap:0px; }
+  .ssp-part{ display:block; }
+  .ssp-part > .ssp-note, .ssp-notes{ margin:0; padding:20px clamp(20px,4vw,48px) 0; background:var(--paper); border-left:2px solid var(--ink); border-right:2px solid var(--ink); }
+  .ssp-notes{ gap:12px; }
+  .ssp-notes .ssp-note:first-child{ margin-top:0; }
+  .ssp-note::before, .ssp-note::after{ display:none; }
+  .ssp-note-in{ padding-left:12px; border-left:3px solid var(--blue); }
+  .ssp-body .ssp-label:first-child{ padding-top:16px; }
+}
+@media (max-width:520px){
+  .ssp-table th:last-child, .ssp-table td:last-child{ width:7rem; padding-left:12px; }
+}
+
+/* The binder drawing (exploded view) and its tab table */
+.binder-layout{ margin-top:40px; display:grid; grid-template-columns:minmax(0,1.35fr) minmax(0,1fr); gap:48px; align-items:center; }
+.binder-fig{ margin:0; }
+.binder-fig svg{ display:block; width:100%; height:auto; }
+.binder-fig figcaption{ margin-top:12px; font-size:1rem; color:var(--ink-2); }
+/* Line weights are fixed on screen (they don't shrink with the drawing): outlines heavy, detail light, centre lines
+   lightest. Only faces the viewer can see are drawn, so no hidden edge doubles up a line. */
+.binder polygon, .binder line, .binder path, .binder ellipse, .binder circle, .binder rect{ vector-effect:non-scaling-stroke; stroke-linejoin:round; stroke-linecap:round; }
+.binder .bd-board{ fill:var(--line); stroke:var(--ink); stroke-width:1.5px; }
+.binder .bd-board-side{ fill:#B9B3A7; stroke:var(--ink); stroke-width:1.5px; }
+.binder .bd-sheet{ fill:var(--paper); stroke:var(--ink); stroke-width:1.5px; }
+.binder .bd-side{ fill:#E4E0D7; stroke:var(--ink); stroke-width:1.5px; }
+.binder .bd-fine{ stroke-width:.85px; }
+.binder .bd-fine-line{ stroke:var(--ink); stroke-width:.85px; }
+.binder .bd-centre{ stroke:var(--ink-2); stroke-opacity:.55; stroke-width:.85px; stroke-dasharray:9 3 2 3; stroke-linecap:butt; }
+.binder .bd-sub{ stroke:var(--ink-2); stroke-opacity:.5; stroke-width:.85px; }
+.binder .bd-subhead{ stroke-width:1.5px; }
+.binder .bd-dash{ fill:none; stroke:var(--ink); stroke-width:.85px; stroke-dasharray:4 3; stroke-linecap:butt; }
+.binder .bd-ring{ fill:none; stroke:var(--ink); stroke-width:2.25px; }
+.binder .bd-hole{ fill:var(--steel); stroke:var(--ink); stroke-width:.85px; }
+.binder .bd-t{ fill:var(--ink); font-family:var(--cond); }
+.binder .bd-t7{ font-weight:700; } .binder .bd-t6{ font-weight:600; } .binder .bd-t5{ font-weight:500; }
+.binder .bd-note-dot{ fill:var(--blue); }
+.binder .bd-note-line{ stroke:var(--blue); stroke-width:1px; }
+.binder .bd-balloon, .binder .bd-tb{ fill:var(--steel); stroke:var(--blue); stroke-width:1.5px; }
+.binder .bd-balloon-t, .binder .bd-tb-t{ fill:var(--blue); font-family:var(--cond); font-weight:700; text-anchor:middle; }
+@media (max-width:600px){
+  .binder .bd-board, .binder .bd-board-side, .binder .bd-sheet, .binder .bd-side, .binder .bd-subhead, .binder .bd-balloon, .binder .bd-tb{ stroke-width:1.15px; }
+  .binder .bd-fine, .binder .bd-fine-line, .binder .bd-centre, .binder .bd-sub, .binder .bd-dash, .binder .bd-hole{ stroke-width:.7px; }
+  .binder .bd-ring{ stroke-width:1.75px; }
+}
+.parts{ width:100%; border-collapse:collapse; background:var(--paper); border:2px solid var(--ink); }
+.parts caption{ padding-bottom:10px; text-align:left; font-family:var(--cond); font-weight:700; font-size:.9375rem; letter-spacing:.12em; text-transform:uppercase; color:var(--blue); }
+.parts th, .parts td{ padding:12px 14px; border-bottom:1px solid var(--line); text-align:left; font-size:1.0625rem; }
+.parts thead th{ border-bottom:2px solid var(--ink); font-family:var(--cond); font-weight:600; font-size:.9375rem; }
+.parts .tab-letter{ display:inline-grid; place-items:center; width:30px; height:30px; border:1.6px solid var(--blue); border-radius:50%; color:var(--blue); font-family:var(--cond); font-weight:700; }
+.parts .no{ color:var(--ink-2); }
+.parts-note{ margin-top:16px; font-size:1.0625rem; color:var(--ink-2); }
+.more-link + .more-link{ margin-top:12px; }
+@media (max-width:900px){ .binder-layout{ grid-template-columns:1fr; gap:32px; } }
+@media (max-width:520px){ .parts th, .parts td{ padding:10px 8px; font-size:1rem; } .parts .tab-letter{ width:26px; height:26px; } }
+@media print{ .ssp::after{ color:rgba(0,0,0,.08); } .ssp-note::before, .ssp-note::after{ display:none; } }
