@@ -727,22 +727,32 @@ circle.leak-halo{ fill:var(--hold-light); }
 .binder-fig{ margin:0; }
 .binder-fig svg{ display:block; width:100%; height:auto; }
 .binder-fig figcaption{ margin-top:12px; font-size:1rem; color:var(--ink-2); }
-.binder .bd-board{ fill:var(--line); stroke:var(--ink); stroke-width:1.25; stroke-linejoin:round; }
-.binder .bd-sheet{ fill:var(--paper); stroke:var(--ink); stroke-width:1.25; stroke-linejoin:round; }
-.binder .bd-thin{ stroke-width:1; }
-.binder .bd-ink{ stroke:var(--ink); stroke-width:1.25; }
-.binder .bd-centre{ stroke:var(--ink-2); stroke-opacity:.6; stroke-width:1; stroke-dasharray:7 3 1.5 3; }
-.binder .bd-sub{ stroke:var(--ink-2); stroke-opacity:.6; stroke-width:1; }
-.binder .bd-subhead{ stroke-width:1.6; }
-.binder .bd-dash{ fill:none; stroke:var(--ink); stroke-width:1; stroke-dasharray:4 3; }
-.binder .bd-ring{ fill:none; stroke:var(--ink); stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; }
-.binder .bd-hole{ fill:var(--steel); stroke:var(--ink); stroke-width:1; }
+/* Line weights are fixed on screen (they don't shrink with the drawing): outlines heavy, detail light, centre lines
+   lightest. Only faces the viewer can see are drawn, so no hidden edge doubles up a line. */
+.binder polygon, .binder line, .binder path, .binder ellipse, .binder circle, .binder rect{ vector-effect:non-scaling-stroke; stroke-linejoin:round; stroke-linecap:round; }
+.binder .bd-board{ fill:var(--line); stroke:var(--ink); stroke-width:1.5px; }
+.binder .bd-board-side{ fill:#B9B3A7; stroke:var(--ink); stroke-width:1.5px; }
+.binder .bd-sheet{ fill:var(--paper); stroke:var(--ink); stroke-width:1.5px; }
+.binder .bd-side{ fill:#E4E0D7; stroke:var(--ink); stroke-width:1.5px; }
+.binder .bd-fine{ stroke-width:.85px; }
+.binder .bd-fine-line{ stroke:var(--ink); stroke-width:.85px; }
+.binder .bd-centre{ stroke:var(--ink-2); stroke-opacity:.55; stroke-width:.85px; stroke-dasharray:9 3 2 3; stroke-linecap:butt; }
+.binder .bd-sub{ stroke:var(--ink-2); stroke-opacity:.5; stroke-width:.85px; }
+.binder .bd-subhead{ stroke-width:1.5px; }
+.binder .bd-dash{ fill:none; stroke:var(--ink); stroke-width:.85px; stroke-dasharray:4 3; stroke-linecap:butt; }
+.binder .bd-ring{ fill:none; stroke:var(--ink); stroke-width:2.25px; }
+.binder .bd-hole{ fill:var(--steel); stroke:var(--ink); stroke-width:.85px; }
 .binder .bd-t{ fill:var(--ink); font-family:var(--cond); }
 .binder .bd-t7{ font-weight:700; } .binder .bd-t6{ font-weight:600; } .binder .bd-t5{ font-weight:500; }
 .binder .bd-note-dot{ fill:var(--blue); }
-.binder .bd-note-line{ stroke:var(--blue); stroke-width:1.1; }
-.binder .bd-balloon, .binder .bd-tb{ fill:var(--steel); stroke:var(--blue); stroke-width:1.5; }
+.binder .bd-note-line{ stroke:var(--blue); stroke-width:1px; }
+.binder .bd-balloon, .binder .bd-tb{ fill:var(--steel); stroke:var(--blue); stroke-width:1.5px; }
 .binder .bd-balloon-t, .binder .bd-tb-t{ fill:var(--blue); font-family:var(--cond); font-weight:700; text-anchor:middle; }
+@media (max-width:600px){
+  .binder .bd-board, .binder .bd-board-side, .binder .bd-sheet, .binder .bd-side, .binder .bd-subhead, .binder .bd-balloon, .binder .bd-tb{ stroke-width:1.15px; }
+  .binder .bd-fine, .binder .bd-fine-line, .binder .bd-centre, .binder .bd-sub, .binder .bd-dash, .binder .bd-hole{ stroke-width:.7px; }
+  .binder .bd-ring{ stroke-width:1.75px; }
+}
 .parts{ width:100%; border-collapse:collapse; background:var(--paper); border:2px solid var(--ink); }
 .parts caption{ padding-bottom:10px; text-align:left; font-family:var(--cond); font-weight:700; font-size:.9375rem; letter-spacing:.12em; text-transform:uppercase; color:var(--blue); }
 .parts th, .parts td{ padding:12px 14px; border-bottom:1px solid var(--line); text-align:left; font-size:1.0625rem; }
