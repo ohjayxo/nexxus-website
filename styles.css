@@ -80,7 +80,9 @@ a:hover{ color:var(--blue-dark); text-decoration-thickness:2px; }
   font-family:var(--cond); font-weight:600; font-size:1.375rem; line-height:1;
 }
 .brand:hover{ color:var(--ink); }
-.brand svg{ width:24px; height:29px; flex:none; }
+.brand .mark{ width:60px; height:20px; flex:none; }
+@media (max-width:399px){ .brand{ gap:8px; } .brand .mark{ width:42px; height:14px; } }
+@media (max-width:370px){ .brand{ gap:7px; } .brand .mark{ width:33px; height:11px; } }
 .site-nav ul{ display:flex; gap:2px; }
 .site-nav a{
   display:block; padding:10px 10px; border-radius:4px;
@@ -484,6 +486,9 @@ circle.leak-halo{ fill:var(--hold-light); }
 
 /* Contact */
 .contact{ background:var(--ink); color:#fff; padding:clamp(72px,9vw,120px) 0; }
+.contact .wrap{ position:relative; }
+.mark-contact{ display:none; position:absolute; top:4px; right:var(--gutter); width:138px; height:46px; }
+@media (min-width:960px){ .mark-contact{ display:block; } }
 .contact h2{ color:#fff; font-size:clamp(2.25rem,4.6vw,3.5rem); font-weight:700; letter-spacing:-.01em; }
 .contact-sub{ margin-top:16px; max-width:36rem; font-size:1.1875rem; color:var(--night-text); }
 .contact-grid{ margin-top:40px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px 48px; max-width:60rem; }
@@ -503,7 +508,8 @@ circle.leak-halo{ fill:var(--hold-light); }
 
 /* Footer */
 .site-footer{ padding:40px 0 48px; font-size:.9375rem; color:var(--ink-2); }
-.footer-name{ font-family:var(--cond); font-weight:600; font-size:1.1875rem; color:var(--ink); }
+.footer-name{ font-family:var(--cond); font-weight:600; font-size:1.1875rem; color:var(--ink); display:flex; align-items:center; gap:10px; }
+.footer-name .mark{ width:54px; height:18px; flex:none; }
 .site-footer p + p{ margin-top:8px; }
 .footer-meta{
   margin-top:20px; padding-top:16px; border-top:1px solid var(--line);
@@ -686,6 +692,7 @@ circle.leak-halo{ fill:var(--hold-light); }
 .ssp-note::after{ content:""; position:absolute; top:calc(.65em - 3px); right:calc(100% + var(--note-gap) - 2.5px); width:7px; height:7px; border-radius:50%; background:var(--blue); }
 .ssp-head, .ssp-foot{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:4px 16px; padding-top:16px; padding-bottom:16px; font-family:var(--cond); font-weight:600; font-size:.875rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-2); }
 .ssp-head{ border-bottom:2px solid var(--ink); }
+.ssp-head .mark-doc{ display:inline-block; width:36px; height:12px; margin-right:12px; vertical-align:-1px; }
 .ssp-foot{ border-top:1px solid var(--line); }
 .ssp-family{ padding-top:28px; font-family:var(--cond); font-weight:700; font-size:.9375rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-2); }
 .ssp-next .ssp-family{ margin-top:4px; border-top:1px solid var(--line); }
@@ -728,6 +735,7 @@ circle.leak-halo{ fill:var(--hold-light); }
 .binder-layout{ margin-top:40px; display:grid; grid-template-columns:minmax(0,1.35fr) minmax(0,1fr); gap:48px; align-items:center; }
 .binder-fig{ margin:0; }
 .binder-fig svg{ display:block; width:100%; height:auto; }
+.binder-fig svg.bd-tb-mark{ display:inline; width:45px; height:15px; }
 .binder-fig figcaption{ margin-top:12px; font-size:1rem; color:var(--ink-2); }
 /* Line weights are fixed on screen (they don't shrink with the drawing): outlines heavy, detail light, centre lines
    lightest. Only faces the viewer can see are drawn, so no hidden edge doubles up a line. */
@@ -765,3 +773,4 @@ circle.leak-halo{ fill:var(--hold-light); }
 @media (max-width:900px){ .binder-layout{ grid-template-columns:1fr; gap:32px; } }
 @media (max-width:520px){ .parts th, .parts td{ padding:10px 8px; font-size:1rem; } .parts .tab-letter{ width:26px; height:26px; } }
 @media print{ .ssp::after{ color:rgba(0,0,0,.08); } .ssp-note::before, .ssp-note::after{ display:none; } }
+@media print{ .mark-contact{ display:none !important; } }
